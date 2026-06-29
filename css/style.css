@@ -888,6 +888,31 @@ body::before {
   margin: 0 auto;
 }
 
+/* ===== Load More ===== */
+.load-more-btn {
+  display: block;
+  width: 200px;
+  margin: 32px auto 0;
+  padding: 12px 24px;
+  background: var(--mc-diamond);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.load-more-btn:hover {
+  background: #27aeb5;
+  transform: translateY(-1px);
+}
+
+.load-more-btn:active {
+  transform: translateY(0);
+}
+
 /* ===== Footer ===== */
 .footer {
   text-align: center;

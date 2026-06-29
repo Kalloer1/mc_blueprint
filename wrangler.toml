@@ -9,3 +9,6 @@ id = "216caeb9e0a84e4cbf59287d08fbcf9e"
 [[r2_buckets]]
 binding = "BLUEPRINT_R2"
 bucket_name = "blueprint-files"
+
+[vars]
+GITHUB_APP_ID = "Ov23liYANHGQgZXXbIzC"

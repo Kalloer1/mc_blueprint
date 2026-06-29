@@ -194,6 +194,9 @@ let availableTags = []; // 从数据中提取的所有标签
 let mcVersions = [];    // 游戏版本列表
 let modDependencies = []; // 模组依赖列表
 let modLinks = {};      // 模组下载链接
+let currentPage = 1;     // 当前页码
+let pageSize = 12;       // 每页显示数量
+let totalFiltered = 0;   // 筛选后的总数
 
 // ==================== 收藏功能 ====================
 
@@ -255,7 +258,7 @@ function sortBlueprints(list, sortType) {
 
 // ==================== 渲染蓝图卡片 ====================
 
-function renderGallery(filter, version, mod, tag, search, sort) {
+function renderGallery(filter, version, mod, tag, search, sort, loadMore) {
   filter = filter || 'all';
   version = version || 'all';
   mod = mod || 'all';
@@ -273,7 +276,11 @@ function renderGallery(filter, version, mod, tag, search, sort) {
   var grid = document.getElementById('blueprint-grid');
   if (!grid) return;
 
-  grid.innerHTML = '';
+  // 如果不是"加载更多"，清空并重置页码
+  if (!loadMore) {
+    grid.innerHTML = '';
+    currentPage = 1;
+  }
 
   // 根据格式、版本、模组、标签和搜索词筛选
   var filtered = blueprints.filter(function (bp) {
@@ -297,12 +304,10 @@ function renderGallery(filter, version, mod, tag, search, sort) {
     // 模组筛选（"all" 不做过滤）
     if (mod && mod !== 'all') {
       if (mod === 'vanilla') {
-        // 原版：没有模组依赖
         if (bp.mod_dependencies && bp.mod_dependencies.length > 0) {
           return false;
         }
       } else {
-        // 指定模组：必须包含该模组
         if (!bp.mod_dependencies || bp.mod_dependencies.indexOf(mod) === -1) {
           return false;
         }
@@ -316,11 +321,15 @@ function renderGallery(filter, version, mod, tag, search, sort) {
       }
     }
 
-    // 搜索词匹配（名称或描述）
+    // 搜索词匹配（名称或描述，支持模糊搜索）
     if (search) {
       var nameMatch = bp.name.toLowerCase().indexOf(search) !== -1;
       var descMatch = bp.description.toLowerCase().indexOf(search) !== -1;
-      if (!nameMatch && !descMatch) {
+      var tagMatch = false;
+      if (bp.tags && Array.isArray(bp.tags)) {
+        tagMatch = bp.tags.some(function(t) { return t.toLowerCase().indexOf(search) !== -1; });
+      }
+      if (!nameMatch && !descMatch && !tagMatch) {
         return false;
       }
     }
@@ -328,11 +337,18 @@ function renderGallery(filter, version, mod, tag, search, sort) {
     return true;
   });
 
+  totalFiltered = filtered.length;
+
   // 排序
   filtered = sortBlueprints(filtered, sort);
 
-  // 空状态
-  if (filtered.length === 0) {
+  // 分页
+  var start = (currentPage - 1) * pageSize;
+  var end = start + pageSize;
+  var currentPageItems = filtered.slice(start, end);
+
+  // 空状态（仅在首页）
+  if (filtered.length === 0 && !loadMore) {
     var empty = document.createElement('div');
     empty.className = 'empty-state';
     empty.innerHTML =
@@ -343,11 +359,28 @@ function renderGallery(filter, version, mod, tag, search, sort) {
     return;
   }
 
-  // 渲染卡片
-  filtered.forEach(function (bp) {
+  // 渲染当前页卡片
+  currentPageItems.forEach(function (bp) {
     var card = createBlueprintCard(bp);
     grid.appendChild(card);
   });
+
+  // 移除旧的"加载更多"按钮
+  var oldBtn = document.getElementById('load-more-btn');
+  if (oldBtn) oldBtn.remove();
+
+  // 添加"加载更多"按钮
+  if (end < filtered.length) {
+    var loadMoreBtn = document.createElement('button');
+    loadMoreBtn.id = 'load-more-btn';
+    loadMoreBtn.className = 'load-more-btn';
+    loadMoreBtn.textContent = '加载更多 (' + (filtered.length - end) + ' 个)';
+    loadMoreBtn.addEventListener('click', function () {
+      currentPage++;
+      renderGallery(currentFilter, currentVersion, currentMod, currentTag, currentSearch, currentSort, true);
+    });
+    grid.appendChild(loadMoreBtn);
+  }
 }
 
 // ==================== 创建蓝图卡片 ====================

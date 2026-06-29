@@ -138,6 +138,12 @@ function updateNavUser(user) {
   name.textContent = user.nickname || 'GitHub 用户';
   name.style.cssText = 'vertical-align: middle; margin-right: 8px; font-size: 14px; color: #333;';
 
+  // 个人中心链接
+  var profileLink = document.createElement('a');
+  profileLink.href = './profile.html';
+  profileLink.textContent = '个人中心';
+  profileLink.style.cssText = 'vertical-align: middle; font-size: 12px; color: #4af5e6; margin-right: 8px; text-decoration: none;';
+
   // 退出按钮
   var logoutBtn = document.createElement('a');
   logoutBtn.className = 'btn-logout';
@@ -148,6 +154,7 @@ function updateNavUser(user) {
 
   navUser.appendChild(avatar);
   navUser.appendChild(name);
+  navUser.appendChild(profileLink);
   navUser.appendChild(logoutBtn);
 }
 
