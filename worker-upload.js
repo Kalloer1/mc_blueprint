@@ -4,8 +4,8 @@
 // ==================== OAuth 配置 ====================
 
 // GitHub OAuth 配置
-const GITHUB_APP_ID = 'YOUR_GITHUB_APP_ID'; // 替换为你的 GitHub OAuth App ID
-const GITHUB_APP_SECRET = 'YOUR_GITHUB_APP_SECRET'; // 替换为你的 GitHub OAuth App Secret
+const GITHUB_APP_ID = 'Ov23liYANHGQgZXXbIzC'; // 替换为你的 GitHub OAuth App ID
+const GITHUB_APP_SECRET = '29badd7883fc87a5dcbf7cefd6c8efaf33e4f3f9'; // 替换为你的 GitHub OAuth App Secret
 const GITHUB_REDIRECT_URI = 'https://qq-auth.wqclo.workers.dev/auth/github/callback';
 
 // ==================== 存储配置 ====================

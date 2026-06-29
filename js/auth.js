@@ -8,7 +8,7 @@
 const AUTH_WORKER_URL = 'https://qq-auth.wqclo.workers.dev';
 
 // GitHub OAuth 配置
-const GITHUB_APP_ID = 'YOUR_GITHUB_APP_ID'; // 替换为你的 GitHub OAuth App ID
+const GITHUB_APP_ID = 'Ov23liYANHGQgZXXbIzC'; // 替换为你的 GitHub OAuth App ID
 
 // ==================== 工具函数 ====================
 
