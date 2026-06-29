@@ -11,8 +11,8 @@ const GITHUB_REDIRECT_URI = 'https://qq-auth.wqclo.workers.dev/auth/github/callb
 // ==================== 存储配置 ====================
 
 // OpenList 配置（可选，用于替代 R2 存储）
-const OPENLIST_URL = ''; // 例如：https://openlist.example.com
-const OPENLIST_TOKEN = ''; // OpenList 登录后的 token
+const OPENLIST_URL = 'https://cloud.888424.xyz/'; // 例如：https://openlist.example.com
+const OPENLIST_TOKEN = 'openlist-813a5c61-3027-40b2-9104-fd431f6d1337sLiBiQBTHiuH84XS1rlQBmO2vTOf2OpYcBcHE3wMaWJX5cE3C4cxvG6Ps5NNg46I'; // OpenList 登录后的 token
 
 // KV 命名空间绑定（需要在 Cloudflare Workers 控制台配置）
 // 绑定名称：BLUEPRINT_KV
@@ -92,26 +92,36 @@ async function handleGitHubCallback(request, corsHeaders) {
 
   try {
     // 使用 code 换取 access_token
+    const tokenParams = new URLSearchParams();
+    tokenParams.set('client_id', GITHUB_APP_ID);
+    tokenParams.set('client_secret', GITHUB_APP_SECRET);
+    tokenParams.set('code', code);
+    tokenParams.set('redirect_uri', GITHUB_REDIRECT_URI);
+
     const tokenResponse = await fetch('https://github.com/login/oauth/access_token', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
         'Accept': 'application/json'
       },
-      body: JSON.stringify({
-        client_id: GITHUB_APP_ID,
-        client_secret: GITHUB_APP_SECRET,
-        code: code,
-        redirect_uri: GITHUB_REDIRECT_URI
-      })
+      body: tokenParams.toString()
     });
 
-    const tokenData = await tokenResponse.json();
+    const tokenText = await tokenResponse.text();
+    let tokenData;
+    try {
+      tokenData = JSON.parse(tokenText);
+    } catch (e) {
+      // 如果不是 JSON，可能是 URL encoded 格式
+      const params = new URLSearchParams(tokenText);
+      tokenData = { access_token: params.get('access_token'), error: params.get('error') };
+    }
+
     const accessToken = tokenData.access_token;
 
     if (!accessToken) {
       return new Response(
-        JSON.stringify({ error: '获取 Access Token 失败', raw: tokenData }),
+        JSON.stringify({ error: '获取 Access Token 失败', raw: tokenData, raw_text: tokenText.substring(0, 200) }),
         { status: 400, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
       );
     }
