@@ -1,5 +1,5 @@
 // ===== Cloudflare Worker for MC Blueprint Workshop =====
-// 包含：多平台 OAuth 登录 + 蓝图上传 + 审核队列 + OpenList 存储支持
+// 包含：GitHub OAuth 登录 + 蓝图上传 + 审核队列 + OpenList 存储支持
 
 // ==================== OAuth 配置 ====================
 
@@ -7,16 +7,6 @@
 const GITHUB_APP_ID = 'YOUR_GITHUB_APP_ID'; // 替换为你的 GitHub OAuth App ID
 const GITHUB_APP_SECRET = 'YOUR_GITHUB_APP_SECRET'; // 替换为你的 GitHub OAuth App Secret
 const GITHUB_REDIRECT_URI = 'https://qq-auth.wqclo.workers.dev/auth/github/callback';
-
-// B站 OAuth 配置
-const BILIBILI_CLIENT_ID = 'YOUR_BILIBILI_CLIENT_ID'; // 替换为你的 B站 Client ID
-const BILIBILI_CLIENT_SECRET = 'YOUR_BILIBILI_CLIENT_SECRET'; // 替换为你的 B站 Client Secret
-const BILIBILI_REDIRECT_URI = 'https://qq-auth.wqclo.workers.dev/auth/bilibili/callback';
-
-// QQ 互联应用配置（保留作为备选）
-const QQ_APP_ID = '1112518560';
-const QQ_APP_KEY = 'Ps6lLVltZEMLWTbQ';
-const QQ_REDIRECT_URI = 'https://kalloer1.github.io/mc_blueprint/auth/callback.html';
 
 // ==================== 存储配置 ====================
 
@@ -45,11 +35,6 @@ export default {
       return new Response(null, { headers: corsHeaders });
     }
 
-    // /callback - QQ OAuth 回调
-    if (url.pathname === '/callback') {
-      return await handleQQCallback(request, corsHeaders);
-    }
-
     // /auth/github - GitHub OAuth 授权跳转
     if (url.pathname === '/auth/github') {
       return handleGitHubAuth(corsHeaders);
@@ -58,16 +43,6 @@ export default {
     // /auth/github/callback - GitHub OAuth 回调
     if (url.pathname === '/auth/github/callback') {
       return await handleGitHubCallback(request, corsHeaders);
-    }
-
-    // /auth/bilibili - B站 OAuth 授权跳转
-    if (url.pathname === '/auth/bilibili') {
-      return handleBilibiliAuth(corsHeaders);
-    }
-
-    // /auth/bilibili/callback - B站 OAuth 回调
-    if (url.pathname === '/auth/bilibili/callback') {
-      return await handleBilibiliCallback(request, corsHeaders);
     }
 
     // /upload - 蓝图上传
@@ -94,11 +69,19 @@ export default {
   }
 };
 
-// ==================== QQ OAuth 回调处理 ====================
+// ==================== GitHub OAuth ====================
 
-async function handleQQCallback(request, corsHeaders) {
+function handleGitHubAuth(corsHeaders) {
+  const state = Math.random().toString(36).substring(2);
+  const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${GITHUB_APP_ID}&redirect_uri=${encodeURIComponent(GITHUB_REDIRECT_URI)}&scope=read:user&state=${state}`;
+
+  return Response.redirect(githubAuthUrl, 302);
+}
+
+async function handleGitHubCallback(request, corsHeaders) {
   const url = new URL(request.url);
   const code = url.searchParams.get('code');
+  const state = url.searchParams.get('state');
 
   if (!code) {
     return new Response(
@@ -108,64 +91,59 @@ async function handleQQCallback(request, corsHeaders) {
   }
 
   try {
-    const tokenUrl = `https://graph.qq.com/oauth2.0/token?grant_type=authorization_code&client_id=${QQ_APP_ID}&client_secret=${QQ_APP_KEY}&code=${code}&redirect_uri=${encodeURIComponent(QQ_REDIRECT_URI)}`;
-    const tokenResponse = await fetch(tokenUrl);
-    const tokenText = await tokenResponse.text();
-    const tokenParams = new URLSearchParams(tokenText);
-    const accessToken = tokenParams.get('access_token');
+    // 使用 code 换取 access_token
+    const tokenResponse = await fetch('https://github.com/login/oauth/access_token', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        client_id: GITHUB_APP_ID,
+        client_secret: GITHUB_APP_SECRET,
+        code: code,
+        redirect_uri: GITHUB_REDIRECT_URI
+      })
+    });
+
+    const tokenData = await tokenResponse.json();
+    const accessToken = tokenData.access_token;
 
     if (!accessToken) {
       return new Response(
-        JSON.stringify({ error: '获取 Access Token 失败', raw: tokenText }),
+        JSON.stringify({ error: '获取 Access Token 失败', raw: tokenData }),
         { status: 400, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
       );
     }
 
-    const openidUrl = `https://graph.qq.com/oauth2.0/me?access_token=${accessToken}`;
-    const openidResponse = await fetch(openidUrl);
-    const openidText = await openidResponse.text();
-    const jsonMatch = openidText.match(/\{[^}]+\}/);
+    // 获取用户信息
+    const userResponse = await fetch('https://api.github.com/user', {
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+        'Accept': 'application/json'
+      }
+    });
 
-    if (!jsonMatch) {
-      return new Response(
-        JSON.stringify({ error: '获取 OpenID 失败', raw: openidText }),
-        { status: 400, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
-      );
-    }
-
-    const openidData = JSON.parse(jsonMatch[0]);
-    const openid = openidData.openid;
-
-    const userInfoUrl = `https://graph.qq.com/user/get_user_info?access_token=${accessToken}&oauth_consumer_key=${QQ_APP_ID}&openid=${openid}`;
-    const userInfoResponse = await fetch(userInfoUrl);
-    const userInfo = await userInfoResponse.json();
-
-    if (userInfo.ret !== 0) {
-      return new Response(
-        JSON.stringify({ error: '获取用户信息失败', info: userInfo }),
-        { status: 400, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
-      );
-    }
+    const userInfo = await userResponse.json();
 
     const userData = {
-      openid: openid,
-      nickname: userInfo.nickname,
-      figureurl: userInfo.figureurl,
-      figureurl_1: userInfo.figureurl_1,
-      figureurl_2: userInfo.figureurl_2,
-      figureurl_qq_1: userInfo.figureurl_qq_1,
-      figureurl_qq_2: userInfo.figureurl_qq_2,
-      gender: userInfo.gender,
+      platform: 'github',
+      id: userInfo.id.toString(),
+      nickname: userInfo.login,
+      avatar: userInfo.avatar_url,
+      bio: userInfo.bio || '',
+      github_url: userInfo.html_url,
     };
 
-    return new Response(
-      JSON.stringify({ success: true, user: userData }),
-      { status: 200, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
-    );
+    // 重定向回前端页面，携带用户信息
+    const redirectUrl = new URL('https://kalloer1.github.io/mc_blueprint/auth/callback.html');
+    redirectUrl.searchParams.set('user_data', JSON.stringify(userData));
+
+    return Response.redirect(redirectUrl.toString(), 302);
 
   } catch (err) {
     return new Response(
-      JSON.stringify({ error: '服务器错误', message: err.message }),
+      JSON.stringify({ error: 'GitHub OAuth 失败', message: err.message }),
       { status: 500, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
     );
   }
@@ -435,171 +413,6 @@ function getModNames(modIds) {
     'thermal': '热力系列',
   };
   return modIds.map(id => modMap[id] || id);
-}
-
-// ==================== GitHub OAuth ====================
-
-function handleGitHubAuth(corsHeaders) {
-  const state = Math.random().toString(36).substring(2);
-  const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${GITHUB_APP_ID}&redirect_uri=${encodeURIComponent(GITHUB_REDIRECT_URI)}&scope=read:user&state=${state}`;
-
-  return Response.redirect(githubAuthUrl, 302);
-}
-
-async function handleGitHubCallback(request, corsHeaders) {
-  const url = new URL(request.url);
-  const code = url.searchParams.get('code');
-  const state = url.searchParams.get('state');
-
-  if (!code) {
-    return new Response(
-      JSON.stringify({ error: '缺少授权码 (code)' }),
-      { status: 400, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
-    );
-  }
-
-  try {
-    // 使用 code 换取 access_token
-    const tokenResponse = await fetch('https://github.com/login/oauth/access_token', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-        client_id: GITHUB_APP_ID,
-        client_secret: GITHUB_APP_SECRET,
-        code: code,
-        redirect_uri: GITHUB_REDIRECT_URI
-      })
-    });
-
-    const tokenData = await tokenResponse.json();
-    const accessToken = tokenData.access_token;
-
-    if (!accessToken) {
-      return new Response(
-        JSON.stringify({ error: '获取 Access Token 失败', raw: tokenData }),
-        { status: 400, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
-      );
-    }
-
-    // 获取用户信息
-    const userResponse = await fetch('https://api.github.com/user', {
-      headers: {
-        'Authorization': `Bearer ${accessToken}`,
-        'Accept': 'application/json'
-      }
-    });
-
-    const userInfo = await userResponse.json();
-
-    const userData = {
-      platform: 'github',
-      id: userInfo.id.toString(),
-      nickname: userInfo.login,
-      avatar: userInfo.avatar_url,
-      bio: userInfo.bio || '',
-      github_url: userInfo.html_url,
-    };
-
-    // 重定向回前端页面，携带用户信息
-    const redirectUrl = new URL('https://kalloer1.github.io/mc_blueprint/auth/callback.html');
-    redirectUrl.searchParams.set('user_data', JSON.stringify(userData));
-
-    return Response.redirect(redirectUrl.toString(), 302);
-
-  } catch (err) {
-    return new Response(
-      JSON.stringify({ error: 'GitHub OAuth 失败', message: err.message }),
-      { status: 500, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
-    );
-  }
-}
-
-// ==================== B站 OAuth ====================
-
-function handleBilibiliAuth(corsHeaders) {
-  const state = Math.random().toString(36).substring(2);
-  const bilibiliAuthUrl = `https://account.bilibili.com/pc/account-pc/auth/oauth?client_id=${BILIBILI_CLIENT_ID}&gourl=${encodeURIComponent('https://kalloer1.github.io/mc_blueprint/auth/callback.html')}&state=${state}`;
-
-  return Response.redirect(bilibiliAuthUrl, 302);
-}
-
-async function handleBilibiliCallback(request, corsHeaders) {
-  const url = new URL(request.url);
-  const code = url.searchParams.get('code');
-  const state = url.searchParams.get('state');
-
-  if (!code) {
-    return new Response(
-      JSON.stringify({ error: '缺少授权码 (code)' }),
-      { status: 400, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
-    );
-  }
-
-  try {
-    // 使用 code 换取 access_token
-    const tokenResponse = await fetch('https://api.bilibili.com/x/account-oauth2/v1/token', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      body: new URLSearchParams({
-        client_id: BILIBILI_CLIENT_ID,
-        client_secret: BILIBILI_CLIENT_SECRET,
-        grant_type: 'authorization_code',
-        code: code
-      })
-    });
-
-    const tokenData = await tokenResponse.json();
-    const accessToken = tokenData.access_token;
-
-    if (!accessToken) {
-      return new Response(
-        JSON.stringify({ error: '获取 Access Token 失败', raw: tokenData }),
-        { status: 400, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
-      );
-    }
-
-    // 获取用户信息
-    const userResponse = await fetch('https://api.bilibili.com/x/web-interface/nav', {
-      headers: {
-        'Authorization': `Bearer ${accessToken}`
-      }
-    });
-
-    const userInfo = await userResponse.json();
-
-    if (userInfo.code !== 0) {
-      return new Response(
-        JSON.stringify({ error: '获取用户信息失败', raw: userInfo }),
-        { status: 400, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
-      );
-    }
-
-    const userData = {
-      platform: 'bilibili',
-      id: userInfo.data.mid.toString(),
-      nickname: userInfo.data.uname,
-      avatar: userInfo.data.face,
-      vip_status: userInfo.data.vip_status,
-      level: userInfo.data.level,
-    };
-
-    // 重定向回前端页面，携带用户信息
-    const redirectUrl = new URL('https://kalloer1.github.io/mc_blueprint/auth/callback.html');
-    redirectUrl.searchParams.set('user_data', JSON.stringify(userData));
-
-    return Response.redirect(redirectUrl.toString(), 302);
-
-  } catch (err) {
-    return new Response(
-      JSON.stringify({ error: 'B站 OAuth 失败', message: err.message }),
-      { status: 500, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
-    );
-  }
 }
 
 // ==================== OpenList 存储支持 ====================
