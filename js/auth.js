@@ -16,7 +16,7 @@ const QQ_REDIRECT_URI = (function () {
 const QQ_AUTH_URL = 'https://graph.qq.com/oauth2.0/authorize';
 
 // Cloudflare Worker 回调服务地址（用户需要自行配置）
-const AUTH_WORKER_URL = '';
+const AUTH_WORKER_URL = 'https://qq-auth.wqclo.workers.dev/';
 
 // ==================== 工具函数 ====================
 
