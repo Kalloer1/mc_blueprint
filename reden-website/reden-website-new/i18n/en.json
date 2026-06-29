@@ -1,0 +1,667 @@
+{
+  "$vuetify": {
+    "close": "Close",
+    "dataFooter": {
+      "firstPage": "First page",
+      "itemsPerPageAll": "All",
+      "itemsPerPageText": "Items per page: ",
+      "lastPage": "Last page",
+      "nextPage": "Next page",
+      "pageText": "{0}-{1} items of {2}",
+      "prevPage": "Previous page"
+    },
+    "dataIterator": {
+      "loadingText": "Loading items...",
+      "nextPage": "Next page",
+      "noResultsText": "No matching records found",
+      "pageText": "{0}-{1} of {2}",
+      "prevPage": "Previous page",
+      "rowsPerPageAll": "All",
+      "rowsPerPageText": "Items per page: "
+    },
+    "noDataText": "No data available",
+    "open": "Open",
+    "pagination": {
+      "ariaLabel": {
+        "root": "Pagination"
+      }
+    }
+  },
+  "admin": {
+    "title": {
+      "admin": "Admin Panel",
+      "users": "All Users"
+    }
+  },
+  "also_try_our_other_online_services:": "Also try our other online services:",
+  "common": {
+    "and": "and",
+    "back": "Back",
+    "back_to_home": "Back to Home",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "description": "Description",
+    "details": "Details",
+    "followers": "followers",
+    "following": "following",
+    "following_projects": "following projects",
+    "link": "Link",
+    "loading___": "Loading...",
+    "name": "Name",
+    "next": "Next",
+    "or": "or",
+    "privacy_policy": "Privacy Policy",
+    "save": "Save",
+    "summary": "Summary",
+    "supported_version": "Supported version",
+    "edit": "Edit",
+    "delete": "Delete",
+    "ok": "OK"
+  },
+  "comments": {
+    "phone_verification_required_title": "Phone Verification Required",
+    "phone_verification_required_message": "According to local laws and regulations, you must bind a phone number to your account before you can post a comment.",
+    "go_to_bind": "Bind Now",
+    "comment_posted": "Comment posted successfully",
+    "comments": "comments",
+    "load_error": "Failed to load comments",
+    "load_more": "Load more",
+    "load_more_replies": "View {count} more replies",
+    "login": "Login",
+    "login_to_comment": "Login to comment",
+    "no_comments": "No comments yet, be the first to comment!",
+    "post_comment": "Post comment",
+    "post_reply": "Post reply",
+    "reply": "Reply",
+    "reply_posted": "Reply posted successfully",
+    "submit_error": "Failed to post, please try again later",
+    "time": {
+      "days_ago": "{count} days ago",
+      "hours_ago": "{count} hours ago",
+      "just_now": "just now",
+      "minutes_ago": "{count} minutes ago"
+    },
+    "title": "Comments",
+    "vote_error": "Failed to vote, please try again later",
+    "write_comment": "Write your comment...",
+    "write_reply": "Write your reply..."
+  },
+  "en": "English",
+  "litematica_generator": {
+    "by": {
+      "author": "Author",
+      "complaint": "If you are the original author and want to claim this design, please",
+      "reason_uploaded": "This design is uploaded",
+      "reason_uploaded_a": "a) because it has been published in public domain or",
+      "reason_uploaded_b": "b) imported from an archive discord or",
+      "reason_uploaded_c": "c) permitted by the original author.",
+      "uploader": "Uploader",
+      "uploader_not_original_author": "The uploader of this design is not the original author."
+    },
+    "chunks": "chunks",
+    "contribute": "Want your own machines such as world eaters to be collected here? Contribute to Reden now! For more information please email me at",
+    "description": "Generate Litematica files online for slimestone and technical minecraft machines, e.g. World Eaters, Tunnel bores, etc. This service is totally free.",
+    "download": "Download",
+    "download_count": "{count} downloads",
+    "failed_preview_load": "Failed to load litematica to preview",
+    "material_list": "Material List",
+    "no_results": "No results found.",
+    "not_found": "Litematica {name} not found!",
+    "not_logged_in": "Guest users can only generate 5 times per minute, please log in to unlock this limit",
+    "og_description": "Generate amazing redstone / slimestone contraptions online, such as world easters or tunnel bores, in any chunks size!",
+    "select": "What do you want to generate today?",
+    "share": "Share",
+    "share_link_copied_to_clipboard": "Share link copied to clipboard.",
+    "size_description": "The size of the machine in x, y, z. for world eaters, the z size is the distance between the starting side and the returning side.",
+    "size_max": "The size of the machine must be less than {size}",
+    "size_min": "The size of the machine must be greater than {size}",
+    "size_mod": "The size divided by {mod} must leave {rem}",
+    "size_x": "Size in x",
+    "size_y": "Size in y",
+    "size_z": "Size in z",
+    "sort": {
+      "createdAt": "Latest",
+      "downloads": "Most Popular",
+      "random-extra": "Explore (Random)",
+      "sort_by": "Sort by:"
+    },
+    "version_filter": "MC Version:",
+    "status": "Visibility",
+    "suggested_values": "Suggested Values: ",
+    "suggestion_notice": "These suggested values are for your reference only",
+    "title": "Litematica Online Generator",
+    "toast": {
+      "failed_to_load_litematica_preview": "Failed to load litematica preview"
+    },
+    "total_downloads": "We have provided {0} downloads in total.",
+    "updated_at": "Updated At",
+    "upload": {
+      "button_msg": "Upload New Design",
+      "edit_or_improve_translation": "Edit or Improve Translation"
+    },
+    "view_all_designs": "View All Designs",
+    "web_title": "{name} - Reden Litematica Generator"
+  },
+  "login": {
+    "button": {
+      "captcha": "Please complete the captcha first",
+      "login": "Login"
+    },
+    "forgot_password": "Forgot Password",
+    "oauth": "Or login with",
+    "or": "Or",
+    "register": "Register",
+    "title": "Login to Reden",
+    "username_or_email_or_phone": "Username, Email, or Phone"
+  },
+  "device_authorization": {
+    "title": "Device Authorization",
+    "loading": "Loading authorization request...",
+    "error": {
+      "missing_token": "Missing authorization token",
+      "already_processed": "This authorization request has already been {status}",
+      "load_failed": "Failed to load authorization request"
+    },
+    "login_required": "You need to log in first to authorize this device.",
+    "request_details": "Authorization Request",
+    "application": "Application",
+    "requested_at": "Requested At",
+    "is_requesting": "is requesting access to your Reden account. By authorizing, you allow this application to:",
+    "warning": {
+      "access_profile": "Access your profile information",
+      "perform_actions": "Perform actions on your behalf",
+      "trust_notice": "Only authorize if you trust this application."
+    },
+    "button": {
+      "deny": "Deny",
+      "authorize": "Authorize",
+      "go_home": "Go to Home"
+    },
+    "success": {
+      "authorized": "Device authorized successfully!",
+      "denied": "Device authorization denied"
+    }
+  },
+  "message": {
+    "all": "All",
+    "all_read": "All Read",
+    "list_title": "My Messages",
+    "mark_as_read": "Mark as Read",
+    "no_notifications": "No notifications yet",
+    "unread": "Unread",
+    "view_all": "View All"
+  },
+  "page404": {
+    "back": "Go Back",
+    "evolving": "The page you were looking for does not exist, the site is still evolving.",
+    "help": "Help build our site!",
+    "title": "Page not found"
+  },
+  "post": {
+    "delete": "Delete",
+    "delete_reason": "Deleting Reason",
+    "litematica_online_edit": "Edit",
+    "litematica_online_edit_desc": "Edit this litematica online before you download, including replace blocks, convert version, etc.",
+    "management_op": "Manage Post:",
+    "preview": "Preview",
+    "transfer_ownership": "Transfer Ownership"
+  },
+  "profile": {
+    "account_not_linked": "Account not linked",
+    "bind_phone_number": "Bind Phone Number",
+    "phone_number": "Phone Number",
+    "verification_code": "Verification Code",
+    "send_code": "Send Code",
+    "bind": "Bind",
+    "phone_not_bound": "Phone number not bound.",
+    "bind_now": "Bind now",
+    "follow": "Follow",
+    "unfollow": "Following",
+    "followed": "Followed",
+    "unfollowed": "Unfollowed",
+    "follow_failed": "Failed to update follow",
+    "follow_list_failed": "Failed to load follows",
+    "my_followers": "My followers",
+    "following_list": "Following",
+    "no_follow_users": "No users yet",
+    "edit": {
+      "back": "Back to Your Profile",
+      "basic_information": "Basic Information",
+      "bio": "Bio",
+      "bio_desc": "Introduction about yourself.",
+      "changeEmail": "Change Email",
+      "email_desc": "This is the email you used to register, and to receive our security notifications, such as reset your password.",
+      "failed_to_save_information": "Failed to save information",
+      "information_saved": "Information saved",
+      "password": {
+        "changePassword": "Change Password",
+        "confirm": "Confirm New Password",
+        "desc": "You can change your password here.",
+        "first": "This is the first time you login, please change your password as soon as       possible.",
+        "mew": "New Password",
+        "old": "Old Password",
+        "passwordsDoNotMatch": "Passwords do not match",
+        "requirements": "Password must contain at least 8 characters, and include letters and numbers",
+        "title": "Password"
+      },
+      "preference": {
+        "pronouns": "Pronouns",
+        "pronouns_desc": "Your pronouns.",
+        "showEmail": "Show Email",
+        "show_email_desc": "Whether to show your email to other users.",
+        "show_github": "Show Github",
+        "show_github_desc": "Whether to show your GitHub to other users.",
+        "show_minecraft_uuid": "Show Minecraft Account",
+        "show_minecraft_uuid_desc": "Whether to show your Minecraft UUID to other users.",
+        "show_timezone": "Show Timezone",
+        "show_timezone_desc": "Whether to show your timezone to other users.",
+        "timezone": "Timezone",
+        "timezone_desc": "Your timezone."
+      },
+      "preferences": "Preferences",
+      "preferencesSaved": "Preferences saved",
+      "save": "Save",
+      "save_preferences": "Save Preferences",
+      "success": "Success",
+      "third_party_accounts": "Third Party Accounts",
+      "username": "Username",
+      "username_desc": "This is the username you use to login. You can change it once every 48 hours.",
+      "username_timer": "You can change your username again in {0} hours",
+      "avatar_desc": "Update your avatar here.",
+      "phone_number_desc": "Used for verification and login.",
+      "avatar_title": "Avatar"
+    },
+    "editProfile": "Edit Profile",
+    "generate_access_token": "Generate Access Token",
+    "link_now": "Link Now!",
+    "logout": "Logout",
+    "microsoft_checked_verifying_minecraft": "Microsoft account checked, verifying Minecraft ownership...",
+    "my_backup": "My Cloud Backups",
+    "no_machines": "This user has no posts yet.",
+    "no_minecraft": "No verified minecraft account linked",
+    "oauth": {
+      "link_account": "Link Account",
+      "unlink_account": "Unlink Account"
+    },
+    "password": "Password",
+    "post_management": "Post Management",
+    "post_management_desc": "View & edit your posts, including posts under review",
+    "posts": "Posts",
+    "sort": {
+      "createdAt": "Latest",
+      "downloads": "Most Downloads",
+      "sort_by": "Sort by:"
+    },
+    "username": "Username",
+    "verified_minecraft": "Verified minecraft account",
+    "your_timezone": "(Your timezone)"
+  },
+  "reden": {
+    "profile": {
+      "bind_phone_number": "Bind Phone Number",
+      "phone_number": "Phone Number",
+      "verification_code": "Verification Code",
+      "send_code": "Send Code",
+      "bind": "Bind"
+    },
+    "card": {
+      "author": "author",
+      "downloads": "downloads",
+      "explore_redstone_machines": "Explore Redstone Machines",
+      "subscribeTitle": "Follow Your Favorite Authors",
+      "viewProfile": "View Profile"
+    },
+    "description": "The best TMC platform - your one-stop destination for sharing Minecraft builds, exploring creative designs, and enhancing gameplay with cutting-edge redstone technology.",
+    "download": "Download",
+    "download_page": {
+      "sorry_constructing": "Sorry, our download page is under construction, we suggest you to download at"
+    },
+    "footer": {
+      "are_both_free_software": "are both free software.",
+      "follow_us": {
+        "bilibili": "Bilibili",
+        "blog": "Blog",
+        "title": "Follow Us",
+        "youtube": "Youtube"
+      },
+      "mojang_disclaimer": "NOT AN OFFICIAL MINECRAFT SERVICE. NOT APPROVED BY OR ASSOCIATED WITH MOJANG, NETEASE OR MICROSOFT.",
+      "reden_community": {
+        "community_events": "Community Events",
+        "community_guidelines": "Community Guidelines",
+        "copyright_complaint": "Copyright Complaint",
+        "discord": "Discord",
+        "title": "Reden Community"
+      },
+      "reden_ecosystem": {
+        "github_organization": "Github Organization",
+        "sponsors": "Sponsors",
+        "title": "Reden Ecosystem",
+        "wiki": "Reden Wiki"
+      },
+      "reden_mod": {
+        "debugger": "Reden Debugger",
+        "rvc": "Reden Version Control",
+        "title": "Reden Mod",
+        "undo_redo": "Undo & Redo"
+      },
+      "social": {
+        "title": "Social"
+      },
+      "this_website": "this website"
+    },
+    "header": {
+      "explore": "Explore",
+      "home": "Home",
+      "mod": "Features",
+      "my_machines": "My Machines",
+      "my_profile": "My Profile",
+      "my_stars": "My Stars",
+      "search": "Search",
+      "studio": "Studio",
+      "upload": "upload"
+    },
+    "home": {
+      "community_intro": {
+        "discord": "Join our Discord server to chat with other redstone developers and get help from the community.",
+        "open_source": "Reden is an open-source project and free for everyone. We welcome everyone to contribute to Reden including code, documentation, wiki, and more.",
+        "sponsor": "Reden is sponsored by the community. We appreciate every sponsor who supports us.",
+        "title": "Community",
+        "wiki": "Reden Wiki contains almost everything you need to know about redstone ans Reden. It is also a great place to share your knowledge with the community."
+      },
+      "creator_ranking": {
+        "real_time": "Real-time",
+        "title": "Top Creators"
+      },
+      "dev_mode": {
+        "login_success": "Login successful",
+        "login_test_account": "Login Test Account",
+        "title": "Development Mode Options"
+      },
+      "feature_intro": {
+        "debugger": "Can't figure out why your redstone contraption isn't working? Reden Debugger can help you see how the game exactly processes your redstone contraption.",
+        "rvc": "RVC (Reden Version Control) is a version control system designed for redstone. It allows you to manage your redstone projects in all versions with ease.",
+        "title": "Features",
+        "undo": "Made a mistake? Reden can quickly undo your actions by just pressing Ctrl+Z. All chain reactions will be undone."
+      },
+      "go_litematica": "MC Builds",
+      "intro_description": {
+        "intro_1": "The name Reden comes from Redstone Eden, meaning a paradise for redstone. We hope Reden can become a paradise for Minecraft redstone enthusiasts, providing players with rich redstone machines, configurations, tutorials and other resources. We are committed to building an open and friendly community, and welcome everyone to join us!",
+        "intro_2": "Reden was originally the name of my mod, and it's also the name of this community. Whether it's my mod or this community, it's all about making players enjoy the game better and create better. Reden carries the original intention of facilitating players through code and technology, and also guides our community towards a more open, inclusive, and high-tech direction.",
+        "intro_3": "From a dedicated website for generating world eaters and other machines, to the current redstone enthusiast community, Reden has been constantly developing. By February 2025, Reden has hundreds of redstone machines and tens of thousands of downloads, becoming a new force in the Minecraft redstone community. Reden has multiple innovative technologies under development or already online, including: better schematic preview functions, redstone machine output rate annotation functions, automated generation of redstone machines, online schematic editing technology, one-click download and use of machines based on in-game mods, etc.",
+        "intro_4": "Below is an introduction to the mod features and community components"
+      },
+      "platform_overview": {
+        "title": "Platform Data Overview"
+      },
+      "popular_machines": {
+        "title": "Popular Redstone Machines",
+        "view_all": "View All"
+      },
+      "top_tags": {
+        "title": "Top Tags"
+      },
+      "top_versions": {
+        "title": "Top Versions"
+      },
+      "stats": {
+        "active_users": "Active Users",
+        "change_this_month": "This Month",
+        "online_service": "Online Service",
+        "redstone_machines": "Redstone Machines",
+        "service_availability": "Service Availability",
+        "stable_running": "Stable Running",
+        "total_downloads": "Total Downloads",
+        "users": "Users"
+      },
+      "sync_github": {
+        "description": "Bind GitHub Apps, sync machines, configurations, repositories and creators you follow: your world!",
+        "go_to": "Go To",
+        "title": "GitHub Sync"
+      }
+    },
+    "learn_more": "Learn More",
+    "my_account": "My Account",
+    "post": {
+      "status": {
+        "approved": "Approved",
+        "deleted": "Deleted",
+        "pending": "Pending",
+        "rejected": "Rejected",
+        "takendown": "Taken Down"
+      }
+    },
+    "title": {
+      "404": "404 Not Found",
+      "copyright_complaint": "Copyright Complaint",
+      "debugger": "Reden Debugger",
+      "download": "Download",
+      "edit_profile": "Edit Profile",
+      "features": "Features",
+      "home": "Homepage",
+      "home_full": "Homepage - Best Technical Minecraft Platform",
+      "my_account": "My Account",
+      "rvc": "RVC",
+      "undo": "Undo",
+      "user_profile_seo": "{0} - {0}'s Posts - Download Minecraft Builds"
+    },
+    "user_not_found": "User Not Found",
+    "wiki": "Wiki"
+  },
+  "register": {
+    "button": {
+      "captcha": "Please complete the captcha first",
+      "done": "Done",
+      "register": "Register"
+    },
+    "email_verification": {
+      "message": "We have sent an email to {email} with a link to complete your registration. If you don't see the email, please check other places it might be, like your junk, spam, social, or other folders.",
+      "title": "One more step"
+    },
+    "existing": "Already have an account?",
+    "invalid": {
+      "email": "Invalid email address.",
+      "password": {
+        "mismatching": "Passwords do not match",
+        "strength": "Password is not strong enough, please use at least 8 characters, including uppercase, lowercase and numbers."
+      },
+      "username": "Invalid Username."
+    },
+    "login": "Login",
+    "oauth": "Or register with: ",
+    "oauth_agree": "By clicking the button below, you agree",
+    "placeholder": {
+      "confirm": "Confirm Password",
+      "email": "Email",
+      "invitation_code": "Invitation Code (optional)",
+      "password": "Password",
+      "username": "Username"
+    },
+    "quick": "Quick registration using a 3rd-party account",
+    "title": "Register to Reden",
+    "toast": {
+      "error": {
+        "unknown": "Unknown error"
+      },
+      "failed": "Failed to register",
+      "successful": {
+        "message": "Please check your email to complete the registration",
+        "title": "Register Successful"
+      },
+      "try": "Please try again later"
+    }
+  },
+  "reset_pass": {
+    "confirm_password": "Confirm New Password",
+    "email_sent": "Email Sent",
+    "email_sent_desc": "An email has been sent to your email address. Please check your inbox and follow the instructions to reset your password.",
+    "forgot_password": "Forgot Password",
+    "input_email": "Email or Usernme",
+    "input_password": "New Password",
+    "invalid_link": "Invalid link",
+    "invalid_link_info": "The link is malformed or expired.",
+    "invalid_link_instruction": "If you want to reset your password, please request a new link from the",
+    "invalid_link_instruction_link": "forgot password page",
+    "please_wait_for_a_while": "Please wait for a while before trying again",
+    "submit": "Submit",
+    "success": "Successfully reset password",
+    "you_can_only_request": "You can only request password reset once per minutes."
+  },
+  "ru": "Русский",
+  "search": {
+    "hover": "Search Reden Features"
+  },
+  "sponsors": {
+    "alipay": "Support us with Alipay",
+    "badge": "You can get this Sponsor badge by supporting us, and it will be displayed on your profile.",
+    "description": "Reden is supported by you, and we are sincerely grateful to every sponsor.",
+    "notice": "Reden is an open-source project and always free for everyone. We receive no funding from any company or organization. We rely on your support to keep the project running. When you support us, you will be listed here as a sponsor so please make sure you provide your name and email address when you donate. Thank you for your support!",
+    "paypal": "Support us with PayPal",
+    "title": "Sponsors"
+  },
+  "studIo": {
+    "replacement": "Replacement"
+  },
+  "studio": {
+    "apply": "Apply Preview",
+    "block_to_replace": "Block",
+    "browse_files": "Browse Local Files",
+    "convert": "Convert Version",
+    "convert_version": "Convert Version",
+    "drop_schematic_file_here": "Drop schematic file here",
+    "edit_your_litematica_file_here": "Edit your Litematica file here. Replace blocks, translate versions, and more.",
+    "litematica_studio": "Litematica Studio",
+    "please_upload_a_litematica_file_to_edit_online": "Please upload a litematica file to edit online.",
+    "replace_blocks": "Replace Blocks",
+    "title": "Litematica Studio - Online Litematica Editor, Replace Blocks, Convert Version, Import, Download",
+    "toolbox": "Toolbox"
+  },
+  "tag": {
+    "edit_request": {
+      "action": "Request edit",
+      "applied": "Tag updated",
+      "submit": "Submit request",
+      "submit_failed": "Failed to submit tag edit",
+      "submitted": "Edit request submitted for review",
+      "title": "Request tag edit"
+    },
+    "loading": "Loading tag",
+    "no_posts_with_tag": "No posts with {tag} yet",
+    "not_found": "Tag not Found",
+    "not_found_description": "This tag is not found, please ensure the tag is correct.",
+    "posts_with_tag": "Posts with This Tag",
+    "tag_associated": "This tag is associated with {count} posts."
+  },
+  "tags": {
+    "actions": {
+      "create": "New Tag"
+    },
+    "dialog": {
+      "create": "Create Tag",
+      "edit": "Edit Tag"
+    },
+    "filter": {
+      "language": "Language",
+      "search": "Search Tags",
+      "title": "Filter & Search",
+      "type": "Tag Type"
+    },
+    "form": {
+      "description": "Tag Description",
+      "name": "Tag Name",
+      "parent": "Parent Tag (tag code)",
+      "required": "Required",
+      "type": "Tag Type"
+    },
+    "notifications": {
+      "deleteError": "Error deleting tag",
+      "deleteSuccess": "Successfully deleted tag"
+    },
+    "table": {
+      "actions": "Actions",
+      "noData": "No Data",
+      "parent": "Parent",
+      "tag": "Tag Code",
+      "type": "Type"
+    },
+    "title": "Tag Editor",
+    "types": {
+      "category": "Category",
+      "feature": "Feature"
+    }
+  },
+  "upload": {
+    "btn": {
+      "finish_editing": "Finish Editing",
+      "select_files": "Select Files",
+      "start_uploading": "Finish and Upload",
+      "upload_design": "Upload Design"
+    },
+    "desc": {
+      "design_maximal_file_size": "Maximal file size: 100MB",
+      "design_supports_file_formats": "Supports file formats: .litematica .schem .zip etc.",
+      "existing_machine_design": "You are editing an existing machine design.\n Uploading a new file will overwrite the existing one.",
+      "i_am_not_the_author": "This machine has been published in public domain or I have the right to publish it",
+      "i_am_the_author": "I am the author",
+      "id_can_only_contain": "ID can only contain a-z, 0-9, - and _",
+      "id_is_taken": "ID is taken, please choose another one",
+      "litematica_generator": "Litematica Generator",
+      "litematica_generator_only_support_uploading_1_litematica_file": "Litematica generator mode only support uploading 1 litematica file",
+      "manual_upload": "Normal designs upload, most designs should choose this option",
+      "maximum_size_per_image": "Maximum 2MB per image",
+      "name_cannot_contain_special_characters": "Name cannot contain special characters",
+      "not_upload": "No files have been uploaded yet",
+      "please_contact_us_if_you_have_any_questions": "Please contact us if you have any questions:",
+      "please_select_which_language_to_edit": "Please select which language to edit",
+      "post_type": "Please select the type of this post",
+      "review_usually_takes_one_to_two_days": "Review usually takes one to two days.",
+      "selected_count_files": "Selected {count} files",
+      "upload_images": "Upload images (up to 3)",
+      "upload_schematic_or_world_save": "Upload schematic or world save.",
+      "you_will_receive_an_email_notification_when_approved": "You will receive an email notification when the design is approved.",
+      "your_machine_design_is_under_review_please_wait_with_patience": "Your machine design is under review, please wait with patience."
+    },
+    "step": {
+      "image": "Images",
+      "tags": "Categories & Tags",
+      "translation": "Information",
+      "under-review": "Under Review",
+      "upload": "Upload"
+    },
+    "tags": {
+      "create_failed": "Failed to create tag",
+      "create_hint": "No existing tag has the same normalized name.",
+      "create_success": "Tag created and selected",
+      "create_tag": "Create \"{name}\"",
+      "empty_code": "Tag code cannot be empty",
+      "input_label": "Search tags",
+      "search_failed": "Failed to search tags",
+      "strict_no_match": "No tag strictly matches this keyword after normalization. You can create a new tag."
+    },
+    "toast": {
+      "auto_filled_id": "Auto-filled ID from name",
+      "auto_filled_name": "Auto-filled name from file name",
+      "max_file_number": "Cannot upload more than {count} files."
+    },
+    "markdown": {
+      "introduction_markdown_editor": {
+        "title": "Welcome to use Reden Markdown Editor! ",
+        "content": "Markdown is an international text format for writing styled texts. <br />Reden provides you with a Markdown editor, where you can edit on the left side and preview the rendered content on the right side. <br />If you want to learn more about Markdown, <a href=\"https://www.geeksforgeeks.org/html/introduction-to-markdown/\" target=_blank>Click Here</a>. "
+      }
+    }
+
+  },
+  "user": {
+    "archiver": "Archiver",
+    "archiver_hover": "This user is an archiver who have rights to upload posts without review",
+    "contributor": "Contributor",
+    "contributor_hover": "This user has contributed to this project",
+    "developer": "Developer",
+    "developer_hover": "This user is an active developer of this project",
+    "sponsor": "Sponsor",
+    "sponsor_hover": "This user has sponsored this project",
+    "staff": "Staff",
+    "staff_hover": "This user is a staff member of this project"
+  },
+  "zh_cn": "简体中文",
+  "zh_tw": "繁體中文"
+}

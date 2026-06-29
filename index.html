@@ -5,6 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MC蓝图工坊 - Minecraft 蓝图库</title>
   <meta name="description" content="探索、分享、转换你的 Minecraft 建筑蓝图。支持 NBT、Schematic、Litematic、JSON 格式。">
+  <meta name="keywords" content="Minecraft, 蓝图, 建筑蓝图, NBT, Schematic, Litematic, 结构文件, 建筑分享">
+  <meta name="author" content="MC蓝图工坊">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kalloer1.github.io/mc_blueprint/">
+  <meta property="og:title" content="MC蓝图工坊 - Minecraft 蓝图库">
+  <meta property="og:description" content="探索、分享、转换你的 Minecraft 建筑蓝图。支持 NBT、Schematic、Litematic、JSON 格式。">
+  <meta property="og:image" content="https://kalloer1.github.io/mc_blueprint/assets/og-image.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://kalloer1.github.io/mc_blueprint/">
+  <meta name="twitter:title" content="MC蓝图工坊 - Minecraft 蓝图库">
+  <meta name="twitter:description" content="探索、分享、转换你的 Minecraft 建筑蓝图。支持 NBT、Schematic、Litematic、JSON 格式。">
+  <meta name="twitter:image" content="https://kalloer1.github.io/mc_blueprint/assets/og-image.png">
+
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -18,6 +39,7 @@
     <ul class="nav-links">
       <li><a href="./" class="active">蓝图库</a></li>
       <li><a href="./converter.html">格式转换</a></li>
+      <li><a href="./upload.html">上传蓝图</a></li>
     </ul>
     <div id="nav-user"></div>
   </nav>
@@ -61,15 +83,51 @@
           <div class="search-box">
             <input type="text" id="search-input" placeholder="搜索蓝图...">
           </div>
+          <select id="sort-select" class="sort-select">
+            <option value="time_desc">按时间（新→旧）</option>
+            <option value="time_asc">按时间（旧→新）</option>
+            <option value="name">按名称</option>
+            <option value="size">按大小</option>
+          </select>
         </div>
       </div>
-      <div class="filter-chips" id="filter-chips">
-        <span class="filter-chip active" data-filter="all">全部</span>
-        <span class="filter-chip" data-filter="nbt">NBT</span>
-        <span class="filter-chip" data-filter="schematic">Schematic</span>
-        <span class="filter-chip" data-filter="litematic">Litematic</span>
-        <span class="filter-chip" data-filter="json">JSON</span>
+
+      <!-- 游戏版本筛选 -->
+      <div class="filter-row">
+        <label class="filter-label">游戏版本</label>
+        <div class="filter-chips version-chips" id="version-chips">
+          <span class="filter-chip active" data-version="all">全部版本</span>
+        </div>
       </div>
+
+      <!-- 模组依赖筛选 -->
+      <div class="filter-row">
+        <label class="filter-label">模组依赖</label>
+        <div class="filter-chips mod-chips" id="mod-chips">
+          <span class="filter-chip active" data-mod="all">全部模组</span>
+        </div>
+      </div>
+
+      <!-- 格式筛选 -->
+      <div class="filter-row">
+        <label class="filter-label">文件格式</label>
+        <div class="filter-chips" id="filter-chips">
+          <span class="filter-chip active" data-filter="all">全部</span>
+          <span class="filter-chip" data-filter="nbt">NBT</span>
+          <span class="filter-chip" data-filter="schematic">Schematic</span>
+          <span class="filter-chip" data-filter="litematic">Litematic</span>
+          <span class="filter-chip" data-filter="json">JSON</span>
+        </div>
+      </div>
+
+      <!-- 风格标签筛选 -->
+      <div class="filter-row">
+        <label class="filter-label">风格标签</label>
+        <div class="filter-chips tag-chips" id="tag-chips">
+          <span class="filter-chip active" data-tag="all">全部标签</span>
+        </div>
+      </div>
+
       <div class="blueprint-grid" id="blueprint-grid"></div>
     </section>
 

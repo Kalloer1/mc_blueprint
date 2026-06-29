@@ -1,0 +1,102 @@
+<script lang="ts" setup>
+import { ref } from 'vue';
+import { doFetchGet, type Profile, toastError } from '~/utils/constants';
+import { toast } from 'vuetify-sonner';
+
+const { user, showActions } = defineProps<{
+  user: Profile | undefined;
+  showActions: boolean;
+}>();
+const status = ref('');
+const verifyingMinecraft = ref(false);
+const mustLinkMicrosoft = ref(false);
+const { t } = useI18n();
+
+function verifyMinecraft() {
+  verifyingMinecraft.value = true;
+  status.value = 'Checking Microsoft account...';
+  // check ms
+  doFetchGet('/api/account/microsoft')
+    .then((response) => {
+      if (response.ok) {
+        status.value = t('profile.microsoft_checked_verifying_minecraft');
+        doFetchGet('/api/account/minecraft/verify')
+          .then((response) => {
+            if (response.ok) {
+              toast.success('Success', {
+                description: 'Minecraft account verified',
+                duration: 1000,
+              });
+              status.value =
+                'Minecraft account verified, please refresh the page';
+              setTimeout(() => window.location.reload(), 1000);
+              verifyingMinecraft.value = false;
+            } else if (response.status == 409) {
+              status.value =
+                'Sorry, your Minecraft account already verified, please refresh the page';
+              verifyingMinecraft.value = false;
+            } else {
+              return Promise.reject(response);
+            }
+          })
+          .catch((e) => toastError(e, 'Failed to verify minecraft account'))
+          .finally(() => (verifyingMinecraft.value = false));
+      } else if (response.status == 404) {
+        mustLinkMicrosoft.value = true;
+        status.value =
+          'You must link your microsoft account to verify minecraft account. ' +
+          'We must be given permission to check your microsoft and minecraft account. ';
+        verifyingMinecraft.value = false;
+      } else {
+        return Promise.reject(response);
+      }
+    })
+    .catch((e) => toastError(e, 'Failed to verify microsoft account'))
+    .finally(() => (verifyingMinecraft.value = false));
+}
+</script>
+
+<template>
+  <span v-if="user?.mcUUID != null">
+    <v-tooltip
+      :text="`Verified as Minecraft UUID ${user.mcUUID}`"
+      location="top"
+    >
+      <template #activator="{ props }">
+        <span v-bind="props">
+          <v-icon style="color: green">mdi-check-decagram</v-icon>
+          {{ $t('profile.verified_minecraft') }}
+        </span>
+      </template>
+    </v-tooltip>
+  </span>
+  <span v-else
+    >{{ $t('profile.no_minecraft') }}
+    <a
+      v-if="showActions"
+      class="router"
+      href="javascript:void(0)"
+      @click="verifyMinecraft"
+    >
+      Verify Now!
+      <v-dialog activator="parent" width="500">
+        <v-card :loading="verifyingMinecraft" title="Verify Minecraft">
+          <v-card-text>{{ status }}</v-card-text>
+
+          <v-card-actions>
+            <v-spacer />
+            <v-btn
+              v-if="mustLinkMicrosoft"
+              color="primary"
+              href="/api/oauth/microsoft"
+            >
+              {{ $t('profile.link_now') }}
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </a>
+  </span>
+</template>
+
+<style scoped></style>

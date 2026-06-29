@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MC蓝图工坊 - 上传蓝图</title>
+  <meta name="description" content="上传你的 Minecraft 建筑蓝图，分享给社区玩家。">
+  <meta name="keywords" content="Minecraft, 蓝图上传, 分享蓝图, 建筑分享">
+  <meta name="author" content="MC蓝图工坊">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <a href="./" class="nav-logo">
+      <div class="logo-icon"></div>
+      <span class="logo-text">MC<span>蓝图</span>工坊</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="./">蓝图库</a></li>
+      <li><a href="./converter.html">格式转换</a></li>
+      <li><a href="./upload.html" class="active">上传蓝图</a></li>
+    </ul>
+    <div id="nav-user"></div>
+  </nav>
+
+  <!-- 主内容 -->
+  <main class="main-content">
+
+    <!-- Hero 区域 -->
+    <section class="hero hero-small">
+      <h1>上传<span class="sub-highlight">蓝图</span></h1>
+      <p>分享你的建筑杰作，与社区玩家一起交流</p>
+    </section>
+
+    <!-- 上传区域 -->
+    <section class="converter-section">
+      <div class="converter-card">
+        <h2>填写蓝图信息</h2>
+        <p class="converter-subtitle">请填写完整的蓝图信息，以便其他玩家更好地了解你的作品</p>
+
+        <!-- 表单 -->
+        <form id="upload-form" enctype="multipart/form-data">
+          <!-- 蓝图文件 -->
+          <div class="form-group">
+            <label for="file-input">蓝图文件 <span class="required">*</span></label>
+            <div class="upload-zone" id="upload-zone">
+              <div class="upload-icon">&#x1f4e6;</div>
+              <p class="upload-text">点击或拖拽文件到此处上传</p>
+              <p class="upload-hint">支持 .nbt, .schematic, .litematic, .json 格式，最大 10MB</p>
+              <input type="file" id="file-input" name="blueprint_file" accept=".nbt,.schematic,.litematic,.json" required hidden>
+              <div class="file-info" id="file-info"></div>
+            </div>
+          </div>
+
+          <!-- 预览图上传 -->
+          <div class="form-group">
+            <label for="preview-input">预览图（可选）</label>
+            <div class="upload-zone preview-zone" id="preview-zone">
+              <div class="upload-icon">&#x1f4f7;</div>
+              <p class="upload-text">点击或拖拽预览图上传</p>
+              <p class="upload-hint">支持 PNG/JPG 格式，建议上传蓝图渲染图</p>
+              <input type="file" id="preview-input" name="preview_image" accept=".png,.jpg,.jpeg" hidden>
+              <div class="file-info preview-info" id="preview-info"></div>
+            </div>
+          </div>
+
+          <!-- 蓝图名称 -->
+          <div class="form-group">
+            <label for="blueprint-name">蓝图名称 <span class="required">*</span></label>
+            <input type="text" id="blueprint-name" name="name" placeholder="例如：中世纪城堡" required>
+          </div>
+
+          <!-- 蓝图描述 -->
+          <div class="form-group">
+            <label for="blueprint-desc">蓝图描述</label>
+            <textarea id="blueprint-desc" name="description" rows="3" placeholder="描述你的蓝图特色、建筑风格等..."></textarea>
+          </div>
+
+          <!-- 游戏版本 -->
+          <div class="form-group">
+            <label for="mc-version">游戏版本 <span class="required">*</span></label>
+            <select id="mc-version" name="mc_version" required>
+              <option value="">请选择版本</option>
+              <option value="1.21">1.21</option>
+              <option value="1.20.4">1.20.4</option>
+              <option value="1.20.1">1.20.1</option>
+              <option value="1.19.4">1.19.4</option>
+              <option value="1.19.2">1.19.2</option>
+              <option value="1.18.2">1.18.2</option>
+              <option value="1.17.1">1.17.1</option>
+              <option value="1.16.5">1.16.5</option>
+              <option value="1.15.2">1.15.2</option>
+              <option value="1.14.4">1.14.4</option>
+              <option value="1.13.2">1.13.2</option>
+              <option value="1.12.2">1.12.2</option>
+              <option value="1.11.2">1.11.2</option>
+              <option value="1.10.2">1.10.2</option>
+              <option value="1.9.4">1.9.4</option>
+              <option value="1.8.9">1.8.9</option>
+            </select>
+          </div>
+
+          <!-- 模组依赖 -->
+          <div class="form-group">
+            <label>模组依赖</label>
+            <p class="form-hint">选择蓝图使用的模组，原版蓝图请留空</p>
+            <div class="form-checkbox-grid" id="mod-checkboxes">
+              <label class="checkbox-item">
+                <input type="checkbox" name="mods" value="ae2">
+                <span>应用能源2 (AE2)</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="mods" value="create">
+                <span>机械动力 (Create)</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="mods" value="thaumcraft6">
+                <span>神秘时代6 (Thaumcraft)</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="mods" value="industrialcraft">
+                <span>工业时代2 (IC2)</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="mods" value="forge">
+                <span>Forge 通用</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="mods" value="fabric">
+                <span>Fabric 通用</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="mods" value="forestry">
+                <span>林业 (Forestry)</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="mods" value="buildcraft">
+                <span>建筑工艺 (BuildCraft)</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="mods" value="railcraft">
+                <span>铁路工艺 (Railcraft)</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="mods" value="tinkers">
+                <span>匠魂 (Tinkers' Construct)</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="mods" value="thermal">
+                <span>热力系列 (Thermal)</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- 风格标签 -->
+          <div class="form-group">
+            <label>风格标签</label>
+            <p class="form-hint">选择适合的标签，帮助其他玩家找到你的蓝图</p>
+            <div class="form-checkbox-grid" id="tag-checkboxes">
+              <label class="checkbox-item">
+                <input type="checkbox" name="tags" value="建筑">
+                <span>建筑</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="tags" value="中世纪">
+                <span>中世纪</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="tags" value="现代">
+                <span>现代</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="tags" value="日式">
+                <span>日式</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="tags" value="红石">
+                <span>红石</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="tags" value="自动化">
+                <span>自动化</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="tags" value="工厂">
+                <span>工厂</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="tags" value="魔法">
+                <span>魔法</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="tags" value="防御">
+                <span>防御</span>
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" name="tags" value="装饰">
+                <span>装饰</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- 上传者名称 -->
+          <div class="form-group">
+            <label for="author-name">上传者名称</label>
+            <input type="text" id="author-name" name="author" placeholder="你的昵称（可选）">
+          </div>
+
+          <!-- 提交按钮 -->
+          <button type="submit" class="btn btn-diamond btn-convert" id="btn-upload">提交上传</button>
+
+          <!-- 进度条 -->
+          <div class="convert-progress" id="upload-progress">
+            <div class="progress-bar"><div class="progress-fill" id="upload-progress-fill"></div></div>
+            <p class="progress-text" id="upload-progress-text">正在上传...</p>
+          </div>
+
+          <!-- 上传结果 -->
+          <div class="convert-result" id="upload-result">
+            <div class="result-icon">&#x2705;</div>
+            <p class="result-text">上传成功！你的蓝图已进入审核队列，审核通过后将在蓝图库中显示。</p>
+          </div>
+        </form>
+
+        <!-- 注意事项 -->
+        <div class="upload-notice">
+          <h4>📝 注意事项</h4>
+          <ul>
+            <li>上传的蓝图需要经过人工审核后才会显示在蓝图库中</li>
+            <li>请确保你有权上传该蓝图，不侵犯他人版权</li>
+            <li>文件大小限制：最大 10MB</li>
+            <li>支持的格式：NBT、Schematic、Litematic、JSON</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Toast 提示 -->
+  <div class="toast" id="toast"></div>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <p>MC蓝图工坊 - 基于 GitHub Pages 构建</p>
+  </footer>
+
+  <!-- 脚本 -->
+  <script src="js/auth.js"></script>
+  <script src="js/upload.js"></script>
+
+</body>
+</html>

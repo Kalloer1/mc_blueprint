@@ -11,7 +11,13 @@
       "preview": "",
       "date": "2025-01-15",
       "tags": ["建筑", "中世纪", "防御"],
-      "download": "./blueprints/castle.nbt"
+      "download": "./blueprints/castle.nbt",
+      "mc_version": "1.20.1",
+      "mod_dependencies": [],
+      "mod_names": [],
+      "author": "匿名玩家",
+      "is_approved": true,
+      "upload_time": "2025-01-15T10:00:00Z"
     },
     {
       "id": 2,
@@ -24,7 +30,13 @@
       "preview": "",
       "date": "2025-02-20",
       "tags": ["建筑", "日式", "装饰"],
-      "download": "./blueprints/shrine.schematic"
+      "download": "./blueprints/shrine.schematic",
+      "mc_version": "1.19.4",
+      "mod_dependencies": [],
+      "mod_names": [],
+      "author": "匿名玩家",
+      "is_approved": true,
+      "upload_time": "2025-02-20T14:30:00Z"
     },
     {
       "id": 3,
@@ -37,7 +49,70 @@
       "preview": "",
       "date": "2025-03-10",
       "tags": ["建筑", "现代", "红石"],
-      "download": "./blueprints/villa.litematic"
+      "download": "./blueprints/villa.litematic",
+      "mc_version": "1.21",
+      "mod_dependencies": [],
+      "mod_names": [],
+      "author": "匿名玩家",
+      "is_approved": true,
+      "upload_time": "2025-03-10T09:15:00Z"
+    },
+    {
+      "id": 4,
+      "name": "应用能源2自动工厂",
+      "description": "基于应用能源2模组的全自动物品加工工厂，包含AE2线缆和存储系统。",
+      "format": "schematic",
+      "size": "4.2 MB",
+      "dimensions": "32x18x32",
+      "blocks": 8900,
+      "preview": "",
+      "date": "2025-04-05",
+      "tags": ["红石", "自动化", "工厂"],
+      "download": "./blueprints/ae2_factory.schematic",
+      "mc_version": "1.20.1",
+      "mod_dependencies": ["ae2"],
+      "mod_names": ["应用能源2"],
+      "author": "红石大师",
+      "is_approved": true,
+      "upload_time": "2025-04-05T16:45:00Z"
+    },
+    {
+      "id": 5,
+      "name": "机械动力蒸汽工厂",
+      "description": "使用机械动力模组的蒸汽动力工厂，包含锅炉、活塞和传动系统。",
+      "format": "litematic",
+      "size": "5.8 MB",
+      "dimensions": "48x22x48",
+      "blocks": 15600,
+      "preview": "",
+      "date": "2025-05-12",
+      "tags": ["红石", "自动化", "工厂"],
+      "download": "./blueprints/create_factory.litematic",
+      "mc_version": "1.20.1",
+      "mod_dependencies": ["create"],
+      "mod_names": ["机械动力"],
+      "author": "工程师小王",
+      "is_approved": true,
+      "upload_time": "2025-05-12T11:20:00Z"
+    },
+    {
+      "id": 6,
+      "name": "神秘时代6魔法塔",
+      "description": "基于神秘时代6模组的魔法塔，包含魔法工作台和元素节点。",
+      "format": "nbt",
+      "size": "3.5 MB",
+      "dimensions": "24x36x24",
+      "blocks": 11200,
+      "preview": "",
+      "date": "2025-06-01",
+      "tags": ["建筑", "魔法", "装饰"],
+      "download": "./blueprints/th6_tower.nbt",
+      "mc_version": "1.18.2",
+      "mod_dependencies": ["thaumcraft6"],
+      "mod_names": ["神秘时代6"],
+      "author": "魔法师梅林",
+      "is_approved": true,
+      "upload_time": "2025-06-01T08:00:00Z"
     }
   ],
   "supportedFormats": [
@@ -69,5 +144,49 @@
       "description": "通用数据交换格式",
       "color": "#4af5e6"
     }
-  ]
+  ],
+  "mcVersions": [
+    {"id": "all", "name": "全部版本"},
+    {"id": "1.21", "name": "1.21"},
+    {"id": "1.20.4", "name": "1.20.4"},
+    {"id": "1.20.1", "name": "1.20.1"},
+    {"id": "1.19.4", "name": "1.19.4"},
+    {"id": "1.19.2", "name": "1.19.2"},
+    {"id": "1.18.2", "name": "1.18.2"},
+    {"id": "1.17.1", "name": "1.17.1"},
+    {"id": "1.16.5", "name": "1.16.5"},
+    {"id": "1.15.2", "name": "1.15.2"},
+    {"id": "1.14.4", "name": "1.14.4"},
+    {"id": "1.13.2", "name": "1.13.2"},
+    {"id": "1.12.2", "name": "1.12.2"},
+    {"id": "1.11.2", "name": "1.11.2"},
+    {"id": "1.10.2", "name": "1.10.2"},
+    {"id": "1.9.4", "name": "1.9.4"},
+    {"id": "1.8.9", "name": "1.8.9"}
+  ],
+  "modDependencies": [
+    {"id": "vanilla", "name": "原版", "description": "无模组依赖"},
+    {"id": "ae2", "name": "应用能源2", "description": "Applied Energistics 2"},
+    {"id": "create", "name": "机械动力", "description": "Create"},
+    {"id": "thaumcraft6", "name": "神秘时代6", "description": "Thaumcraft 6"},
+    {"id": "forge", "name": "Forge 通用", "description": "Forge 基础模组"},
+    {"id": "fabric", "name": "Fabric 通用", "description": "Fabric 基础模组"},
+    {"id": "industrialcraft", "name": "工业时代2", "description": "IndustrialCraft 2"},
+    {"id": "forestry", "name": "林业", "description": "Forestry"},
+    {"id": "buildcraft", "name": "建筑工艺", "description": "BuildCraft"},
+    {"id": "railcraft", "name": "铁路工艺", "description": "Railcraft"},
+    {"id": "tinkers", "name": "匠魂", "description": "Tinkers' Construct"},
+    {"id": "thermal", "name": "热力系列", "description": "Thermal Expansion/Foundation"}
+  ],
+  "modLinks": {
+    "ae2": "https://modrinth.com/mod/ae2",
+    "create": "https://modrinth.com/mod/create",
+    "thaumcraft6": "https://www.curseforge.com/minecraft/mc-mods/thaumcraft-6",
+    "industrialcraft": "https://www.curseforge.com/minecraft/mc-mods/industrial-craft",
+    "forestry": "https://www.curseforge.com/minecraft/mc-mods/forestry",
+    "buildcraft": "https://www.curseforge.com/minecraft/mc-mods/buildcraft",
+    "railcraft": "https://www.curseforge.com/minecraft/mc-mods/railcraft",
+    "tinkers": "https://www.curseforge.com/minecraft/mc-mods/tinkers-construct",
+    "thermal": "https://www.curseforge.com/minecraft/mc-mods/thermal-expansion"
+  }
 }

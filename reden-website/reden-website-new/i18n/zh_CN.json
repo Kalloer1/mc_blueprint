@@ -1,0 +1,680 @@
+{
+  "$vuetify": {
+    "close": "关闭",
+    "dataFooter": {
+      "firstPage": "第一页",
+      "itemsPerPageAll": "全部",
+      "itemsPerPageText": "每页项目: ",
+      "lastPage": "最后一页",
+      "nextPage": "下一页",
+      "pageText": "{0}-{1}, 共 {2} 项",
+      "prevPage": "上一页"
+    },
+    "dataIterator": {
+      "loadingText": "正在加载项目...",
+      "nextPage": "下一页",
+      "noResultsText": "没有找到相关记录",
+      "pageText": "{0}-{1}, 共 {2} 项",
+      "prevPage": "上一页",
+      "rowsPerPageAll": "全部",
+      "rowsPerPageText": "每页项目: "
+    },
+    "noDataText": "没有可用数据",
+    "open": "打开",
+    "pagination": {
+      "ariaLabel": {
+        "root": "分页"
+      }
+    }
+  },
+  "admin": {
+    "title": {
+      "admin": "管理面板",
+      "users": "全部用户"
+    }
+  },
+  "also_try_our_other_online_services:": "快来试试我们的其他在线服务：",
+  "comments": {
+    "phone_verification_required_title": "需要手机验证",
+    "phone_verification_required_message": "根据相关法律法规，您需要绑定手机号才能发表评论。",
+    "go_to_bind": "立即绑定",
+    "comment_posted": "评论发表成功",
+    "comments": "条评论",
+    "load_error": "加载评论失败",
+    "load_more": "加载更多",
+    "load_more_replies": "查看更多 {count} 条回复",
+    "login": "登录",
+    "login_to_comment": "登录后即可发表评论",
+    "no_comments": "暂无评论，快来抢沙发吧！",
+    "post_comment": "发表评论",
+    "post_reply": "发表回复",
+    "reply": "回复",
+    "reply_posted": "回复发表成功",
+    "submit_error": "发表失败，请稍后重试",
+    "time": {
+      "days_ago": "{count} 天前",
+      "hours_ago": "{count} 小时前",
+      "just_now": "刚刚",
+      "minutes_ago": "{count} 分钟前"
+    },
+    "title": "评论",
+    "vote_error": "投票失败，请稍后重试",
+    "write_comment": "写下你的评论...",
+    "write_reply": "写下你的回复..."
+  },
+  "common": {
+    "and": "和",
+    "back": "返回",
+    "back_to_home": "回到首页",
+    "cancel": "取消",
+    "confirm": "确认",
+    "description": "介绍",
+    "details": "详细信息",
+    "followers": "粉丝",
+    "following": "关注中",
+    "following_projects": "关注中项目",
+    "link": "链接",
+    "loading___": "加载中...",
+    "name": "名称",
+    "next": "下一步",
+    "or": "或",
+    "privacy_policy": "隐私政策",
+    "save": "保存",
+    "summary": "简介",
+    "supported_version": "支持版本",
+    "edit": "编辑",
+    "delete": "删除",
+    "ok": "好"
+  },
+  "en": "English",
+  "litematica_generator": {
+    "by": {
+      "author": "作者",
+      "complaint": "如果你是原作者，并希望获得此上传的所有权，请",
+      "reason_uploaded": "此机器上传是因为：",
+      "reason_uploaded_a": "a) 此作品已在公开领域发表；",
+      "reason_uploaded_b": "b) 从档案馆频道导入；",
+      "reason_uploaded_c": "c) 获得了原作者许可。",
+      "uploader": "上传者",
+      "uploader_not_original_author": "此设计的上传者并不是其作者。"
+    },
+    "chunks": "个区块",
+    "contribute": "想要你的机器（例如世界吞噬者）被收录在这里？现在就为 Reden 做出贡献！联系我请发送邮件至",
+    "description": "在这里在线生成《我的世界》投影文件，不管是世界吞噬者、破基岩机还是盾构机，这里都可以生成。任意形状大小。生成全部免费！",
+    "download": "下载",
+    "download_count": "{count} 次下载",
+    "failed_preview_load": "加载投影预览失败",
+    "material_list": "材料列表",
+    "no_results": "没有结果，搜搜其他的吧！",
+    "not_found": "未找到投影 {name}！",
+    "not_logged_in": "游客用户每分钟只能生成 5 次，登录后解锁此限制",
+    "og_description": "生成我的世界红石机器投影，包括世吞、盾构等，支持任意大小，完全免费！",
+    "select": "今天你想生成什么？",
+    "share": "分享",
+    "share_link_copied_to_clipboard": "分享链接已复制到剪切板。",
+    "size_description": "机器的 x, y, z 尺寸。对于世界吞噬者，z 尺寸是出发站和返回站之间的距离。",
+    "size_max": "机器的尺寸必须小于 {size}",
+    "size_min": "机器的尺寸必须大于 {size}",
+    "size_mod": "尺寸除以 {mod} 的余数必须为 {rem}",
+    "size_x": "x 方向尺寸",
+    "size_y": "y 方向尺寸",
+    "size_z": "z 方向尺寸",
+    "sort": {
+      "createdAt": "最新发布",
+      "downloads": "最多下载",
+      "random-extra": "探索队列（随机）",
+      "sort_by": "排序方式："
+    },
+    "version_filter": "MC版本：",
+    "status": "当前状态",
+    "suggested_values": "建议选择：",
+    "suggestion_notice": "建议值仅供参考，可能无法正确生成有效投影",
+    "title": "投影蓝图在线生成器",
+    "toast": {
+      "failed_to_load_litematica_preview": "加载投影预览失败"
+    },
+    "total_downloads": "我们已累计提供 {0} 次下载服务。",
+    "updated_at": "更新时间",
+    "upload": {
+      "button_msg": "上传你的机器",
+      "edit_or_improve_translation": "编辑此机器或改进其翻译"
+    },
+    "view_all_designs": "查看所有的机器",
+    "vote_down": "点踩",
+    "vote_up": "点赞",
+    "web_title": "{name} - Reden投影蓝图在线生成器"
+  },
+  "login": {
+    "button": {
+      "captcha": "请先完成验证码",
+      "login": "登录"
+    },
+    "forgot_password": "忘记密码",
+    "oauth": "或使用以下方式登录",
+    "or": "或者",
+    "register": "去注册",
+    "title": "登录 Reden",
+    "username_or_email_or_phone": "用户名、邮箱或手机号"
+  },
+  "device_authorization": {
+    "title": "设备授权",
+    "loading": "正在加载授权请求...",
+    "error": {
+      "missing_token": "缺少授权令牌",
+      "already_processed": "此授权请求已被{status}",
+      "load_failed": "加载授权请求失败"
+    },
+    "login_required": "您需要先登录才能授权此设备。",
+    "request_details": "授权请求",
+    "application": "应用程序",
+    "requested_at": "请求时间",
+    "is_requesting": "正在请求访问您的 Reden 账户。授权后，此应用程序将能够：",
+    "warning": {
+      "access_profile": "访问您的个人资料信息",
+      "perform_actions": "代表您执行操作",
+      "trust_notice": "仅在您信任此应用程序时进行授权。"
+    },
+    "button": {
+      "deny": "拒绝",
+      "authorize": "授权",
+      "go_home": "前往首页"
+    },
+    "success": {
+      "authorized": "设备授权成功！",
+      "denied": "已拒绝设备授权"
+    }
+  },
+  "message": {
+    "all": "全部",
+    "all_read": "全部已读",
+    "list_title": "我的消息",
+    "mark_as_read": "标记为已读",
+    "no_notifications": "暂无通知",
+    "unread": "未读",
+    "view_all": "查看全部"
+  },
+  "page404": {
+    "back": "返回上一页",
+    "evolving": "你要找的页面并不存在，我们的网站正在进化中……",
+    "help": "帮助建设我们的网站！",
+    "title": "页面没有找到"
+  },
+  "post": {
+    "delete": "下架",
+    "delete_reason": "下架原因",
+    "litematica_online_edit": "编辑",
+    "litematica_online_edit_desc": "下载之前在线编辑此投影，进行个性化设置，你可以批量替换方块，或者转换其版本。",
+    "management_op": "管理操作：",
+    "preview": "预览",
+    "transfer_ownership": "转让帖子"
+  },
+  "profile": {
+    "account_not_linked": "未链接账号",
+    "bind_phone_number": "绑定手机号",
+    "phone_number": "手机号",
+    "verification_code": "验证码",
+    "send_code": "发送验证码",
+    "bind": "绑定",
+    "phone_not_bound": "未绑定手机号",
+    "bind_now": "立即绑定",
+    "follow": "关注",
+    "unfollow": "已关注",
+    "followed": "已关注",
+    "unfollowed": "已取消关注",
+    "follow_failed": "关注操作失败",
+    "follow_list_failed": "加载关注列表失败",
+    "my_followers": "我的粉丝",
+    "following_list": "关注列表",
+    "no_follow_users": "暂无用户",
+    "edit": {
+      "back": "返回个人资料页",
+      "basic_information": "基本信息",
+      "bio": "个人简介",
+      "bio_desc": "介绍你自己",
+      "changeEmail": "修改邮件地址",
+      "email_desc": "你注册时使用的邮箱，用于接受我们的账号安全信息，比如重置密码",
+      "failed_to_save_information": "保存信息失败",
+      "information_saved": "信息已保存",
+      "password": {
+        "changePassword": "修改密码",
+        "confirm": "确认新密码",
+        "desc": "你可以在此修改密码",
+        "first": "你还没有设置密码，为了账号安全请尽快设置密码。",
+        "mew": "新密码",
+        "old": "旧密码",
+        "passwordsDoNotMatch": "密码不一致",
+        "requirements": "密码必须包含至少8个字符，同时包含数字和字母",
+        "title": "密码"
+      },
+      "preference": {
+        "pronouns": "代词",
+        "pronouns_desc": "你所用的人称代词",
+        "showEmail": "展示邮件地址",
+        "show_email_desc": "是否像其他人展示你的电子邮件。",
+        "show_github": "展示 GitHub 账号",
+        "show_github_desc": "是否像其他人显示你的GitHub账号",
+        "show_minecraft_uuid": "展示 Minecraft 账号",
+        "show_minecraft_uuid_desc": "是否像其他人展示你的Minecraft UUID。",
+        "show_timezone": "展示时区",
+        "show_timezone_desc": "是否向其他人显示你的时区。",
+        "timezone": "时区",
+        "timezone_desc": "你的时区。"
+      },
+      "preferences": "偏好设置",
+      "preferencesSaved": "偏好设置已保存",
+      "save": "保存",
+      "save_preferences": "保存偏好设置",
+      "success": "操作成功",
+      "third_party_accounts": "第三方账号",
+      "username": "用户名",
+      "username_desc": "这是你用来登录的用户名，你每48小时只可以修改一次。",
+            "username_timer": "你可以在{0}小时后修改用户名",
+            "avatar_desc": "更新你的头像",
+            "phone_number_desc": "用于登录和验证",
+            "avatar_title": "头像"
+          },    "editProfile": "编辑个人资料",
+    "generate_access_token": "生成个人密钥",
+    "link_now": "点击链接",
+    "logout": "退出登录",
+    "microsoft_checked_verifying_minecraft": "微软账号已绑定，正在检查 Minecraft 所有权...",
+    "my_backup": "我的云备份",
+    "no_machines": "此用户还没有投稿。",
+    "no_minecraft": "没有链接 Minecraft 账号",
+    "oauth": {
+      "link_account": "连接账户",
+      "unlink_account": "取消连接"
+    },
+    "password": "密码",
+    "post_management": "投稿管理",
+    "post_management_desc": "管理您的投稿，编辑投稿，还可以查看还在审核中的投稿",
+    "posts": "投稿列表",
+    "sort": {
+      "createdAt": "最新发布",
+      "downloads": "最多下载",
+      "sort_by": "排序方式："
+    },
+    "username": "用户名",
+    "verified_minecraft": "已认证的 Minecraft 账号",
+    "your_timezone": "（相同时区）"
+  },
+  "reden": {
+    "profile": {
+      "bind_phone_number": "绑定手机号",
+      "phone_number": "手机号",
+      "verification_code": "验证码",
+      "send_code": "发送验证码",
+      "bind": "绑定"
+    },
+    "card": {
+      "author": "作者",
+      "downloads": "下载量",
+      "explore_redstone_machines": "探索红石机器",
+      "subscribeTitle": "关注最爱的作者",
+      "viewProfile": "前往个人空间"
+    },
+    "description": "最好用的我的世界生电平台，为红石机器开发者提供一站式工作环境，探索各种创意设计和前沿红石科技。",
+    "download": "下载",
+    "download_page": {
+      "sorry_constructing": "抱歉，我们的下载页面正在建设中，我们建议您前往此处下载："
+    },
+    "footer": {
+      "are_both_free_software": "都是自由开源软件。",
+      "follow_us": {
+        "bilibili": "哔哩哔哩",
+        "blog": "博客",
+        "title": "关注我们",
+        "youtube": "Youtube"
+      },
+      "mojang_disclaimer": "声明：本网站由粉丝创作和运营，不是《我的世界》官方服务。与Mojang、网易或微软无关。",
+      "reden_community": {
+        "community_events": "社区活动",
+        "community_guidelines": "社区指南",
+        "copyright_complaint": "著作权违规投诉",
+        "discord": "Discord 群组",
+        "title": "Reden 社区"
+      },
+      "reden_ecosystem": {
+        "github_organization": "Github 组织",
+        "sponsors": "赞助者",
+        "title": "Reden 生态系统",
+        "wiki": "Reden 维基"
+      },
+      "reden_mod": {
+        "debugger": "Reden 调试器",
+        "rvc": "Reden 版本控制 (RVC)",
+        "title": "Reden Mod",
+        "undo_redo": "撤销 & 重做"
+      },
+      "social": {
+        "title": "社群媒体"
+      },
+      "this_website": "这个网站"
+    },
+    "header": {
+      "explore": "下载投影",
+      "home": "首页",
+      "mod": "模组",
+      "my_machines": "我的机器",
+      "my_profile": "我的账号",
+      "my_stars": "我的收藏",
+      "search": "搜索",
+      "studio": "投影工作室",
+      "upload": "投稿"
+    },
+    "home": {
+      "community_intro": {
+        "discord": "加入我们的 Discord 服务器，与其他红石开发者聊天并从社区获得帮助。",
+        "open_source": "Reden 是一个开源项目，对所有人免费。我们欢迎所有人为 Reden 做出贡献，包括代码、文档、Wiki 等。",
+        "sponsor": "Reden 得到了社区的赞助。我们感谢每一位支持我们的赞助者。",
+        "title": "社区",
+        "wiki": "Reden Wiki 包含了您需要了解的关于红石和 Reden 的几乎所有内容。这也是与社区分享您的知识的好地方。"
+      },
+      "creator_ranking": {
+        "real_time": "实时",
+        "title": "顶级创作者"
+      },
+      "dev_mode": {
+        "login_success": "登录成功",
+        "login_test_account": "登录测试账号",
+        "title": "开发模式选项"
+      },
+      "feature_intro": {
+        "debugger": "搞不清楚为什么您的红石装置不工作？Reden 调试器可以帮助您查看游戏如何处理您的红石装置。",
+        "rvc": "RVC（Reden 版本控制）是专为红石设计的版本控制系统。它可以让您轻松管理所有版本的红石项目。",
+        "title": "功能介绍",
+        "undo": "不小心出了错？Reden 可以通过按下 Ctrl+Z 快速撤销您的操作。所有连锁反应都将被撤销。"
+      },
+      "go_litematica": "下载投影",
+      "intro_description": {
+        "intro_1": "Reden 的名字来自于 Redstone Eden，意为红石伊甸园。我们希望 Reden 能成为一个 Minecraft 红石爱好者的乐园，为玩家提供丰富的红石机器、配置、教程等资源。我们致力于打造一个开放、友好的社区，欢迎各位加入我们！",
+        "intro_2": "Reden 本是我的模组的名字，同时也是这个社区的名字。不管是我的模组还是这个社区，都是为了让玩家更好地享受游戏，更好地创造。Reden 承载着通过代码与技术方便玩家的初衷，也指引着我们的社区朝着更开放、包容、高技术力量的方向发展。",
+        "intro_3": "从专门生成世吞等机器的专用网站，到现在的红石爱好者社区，Reden 一直在不断发展。到2025年2月，Reden已经拥有数百个红石机器，和数万次下载，成为了 Minecraft 红石社区中的一股新力量。Reden 拥有多项独创性技术正在开发或已经上线，包括：更好的投影预览功能，红石机器产物速率标注功能，红石机器的自动化生成，投影在线编辑技术，基于游戏内模组的机器一键下载一键使用等等。",
+        "intro_4": "下面是对于模组功能和社区组成部分的介绍"
+      },
+      "platform_overview": {
+        "title": "平台数据总览"
+      },
+      "popular_machines": {
+        "title": "热门红石机器",
+        "view_all": "查看全部"
+      },
+      "top_tags": {
+        "title": "热门标签"
+      },
+      "top_versions": {
+        "title": "热门版本"
+      },
+      "stats": {
+        "active_users": "活跃用户",
+        "change_this_month": "本月",
+        "online_service": "在线服务",
+        "redstone_machines": "红石机器",
+        "service_availability": "服务可用性",
+        "stable_running": "稳定运行",
+        "total_downloads": "总下载量",
+        "users": "用户"
+      },
+      "sync_github": {
+        "description": "绑定 GitHub Apps，同步机器、配置、你关注的仓库和创作者：你的世界！",
+        "go_to": "点击前往",
+        "title": "Github 同步"
+      }
+    },
+    "learn_more": "了解更多",
+    "my_account": "我的账户",
+    "post": {
+      "status": {
+        "approved": "审核通过",
+        "deleted": "已删除",
+        "pending": "等待审核",
+        "rejected": "拒稿",
+        "takendown": "已下架"
+      }
+    },
+    "title": {
+      "404": "404 找不到页面",
+      "copyright_complaint": "著作权侵权投诉",
+      "debugger": "Reden 调试器",
+      "download": "下载",
+      "edit_profile": "编辑个人资料",
+      "features": "功能",
+      "home": "首页",
+      "home_full": "首页 - 最好用的我的世界生电平台",
+      "my_account": "我的账号",
+      "rvc": "RVC",
+      "undo": "撤销",
+      "user_profile_seo": "{0} - {0} 的红石机器设计 - 下载我的世界机器设计"
+    },
+    "user_not_found": "未找到用户",
+    "wiki": "维基"
+  },
+  "register": {
+    "button": {
+      "captcha": "请先完成验证码",
+      "done": "完成",
+      "register": "注册"
+    },
+    "email_verification": {
+      "message": "我们向 {email} 发送了一封包含注册链接的邮件，请点击链接已完成注册。如果没有收到此邮件，请检查其他它可能在的地方，如垃圾邮件文件夹。",
+      "title": "还差一步"
+    },
+    "existing": "已经有账号了？",
+    "invalid": {
+      "email": "无效的邮箱地址",
+      "password": {
+        "mismatching": "密码不匹配",
+        "strength": "密码需使用至少8个字符，并同时包含大写字母、小写字母和数字"
+      },
+      "username": "无效用户名"
+    },
+    "login": "登录",
+    "oauth": "或使用以下方式注册: ",
+    "oauth_agree": "点击以下按钮即代表您同意",
+    "placeholder": {
+      "confirm": "重复密码",
+      "email": "电子邮箱",
+      "invitation_code": "邀请码(可选)",
+      "password": "密码",
+      "username": "用户名"
+    },
+    "quick": "使用第三方账号快速注册",
+    "title": "注册 Reden",
+    "toast": {
+      "error": {
+        "unknown": "未知错误"
+      },
+      "failed": "注册失败",
+      "successful": {
+        "message": "请检查你的邮箱来完成注册",
+        "title": "注册成功！"
+      },
+      "try": "请稍后再试"
+    }
+  },
+  "reset_pass": {
+    "confirm_password": "确认新密码",
+    "email_sent": "邮件已发送",
+    "email_sent_desc": "我们已经一封电子邮件发送给你，请检查收件箱并按照其中的指示重置密码。",
+    "forgot_password": "忘记密码",
+    "input_email": "电子邮件或用户名",
+    "input_password": "新密码",
+    "invalid_link": "链接无效",
+    "invalid_link_info": "此链接格式错误或者已过期。",
+    "invalid_link_instruction": "如果你想重置密码，请前往密码重置页面",
+    "invalid_link_instruction_link": "重新获取一个重置链接",
+    "please_wait_for_a_while": "请稍等一下再试",
+    "submit": "确认",
+    "success": "密码重置成功",
+    "you_can_only_request": "每分钟只能请求一次密码重置邮件。"
+  },
+  "ru": "Русский",
+  "search": {
+    "hover": "搜索 Reden 功能"
+  },
+  "sponsors": {
+    "alipay": "使用支付宝赞助",
+    "badge": "你可以通过支持我们来获得此赞助者徽章，它将显示在你的个人资料上。",
+    "description": "Reden 得到了你们的支持，我们在此由衷地感谢每一位赞助者。",
+    "notice": "Reden 是一个开源项目，永远对所有人免费。我们没有从任何公司或组织获得资金。我们依靠您的支持来维持项目运行。当您支持我们时，您会在此页面被列出，因此请确保您在捐款时提供您的姓名和电子邮件地址。感谢您的支持！",
+    "paypal": "使用 PayPal 支持我们",
+    "title": "赞助者"
+  },
+  "studIo": {
+    "replacement": "替换为"
+  },
+  "studio": {
+    "apply": "应用并预览",
+    "block_to_replace": "方块",
+    "browse_files": "浏览本地文件",
+    "convert": "转换版本",
+    "convert_version": "转换版本",
+    "drop_schematic_file_here": "拖拽投影文件到这里",
+    "edit_your_litematica_file_here": "在这个页面可以编辑你的投影文件，批量替换方块，转换版本，等等。",
+    "litematica_studio": "投影工作室",
+    "please_upload_a_litematica_file_to_edit_online": "请先上传文件以开始在线编辑。",
+    "replace_blocks": "批量替换方块",
+    "title": "投影工作室 - 在线投影文件编辑器 批量替婚方块 版本转换 格式转换 导入 下载",
+    "toolbox": "工具箱"
+  },
+  "tag": {
+    "edit_request": {
+      "action": "申请编辑",
+      "applied": "标签已更新",
+      "submit": "提交申请",
+      "submit_failed": "提交标签编辑申请失败",
+      "submitted": "编辑申请已提交，等待审核",
+      "title": "申请编辑此标签"
+    },
+    "loading": "正在加载标签",
+    "no_posts_with_tag": "还没有与 {tag} 相关的投稿",
+    "not_found": "找不到标签",
+    "not_found_description": "没有找到这个标签。",
+    "posts_with_tag": "相关投稿",
+    "tag_associated": "此标签下有 {count} 个投稿。"
+  },
+  "tags": {
+    "actions": {
+      "create": "创建标签"
+    },
+    "admin": {
+      "description": "管理所有语言的标签，支持增删改查"
+    },
+    "delete": {
+      "confirm": "确定要删除标签 '{tag}' 吗？此操作无法撤销。",
+      "title": "删除标签"
+    },
+    "dialog": {
+      "create": "创建新标签",
+      "edit": "编辑标签"
+    },
+    "filter": {
+      "language": "语言",
+      "search": "搜索标签",
+      "title": "筛选与搜索",
+      "type": "标签类型"
+    },
+    "form": {
+      "description": "描述",
+      "name": "标签名称",
+      "parent": "父标签（标签代码）",
+      "required": "此字段为必填项",
+      "tag": "标签代码",
+      "type": "标签类型"
+    },
+    "notifications": {
+      "deleteError": "删除标签时出错",
+      "deleteSuccess": "标签已成功删除",
+      "saveError": "保存标签时出错",
+      "saveSuccess": "标签保存成功"
+    },
+    "table": {
+      "actions": "操作",
+      "id": "ID",
+      "name": "标签名称",
+      "noData": "暂无标签数据",
+      "parent": "父标签",
+      "tag": "标签代码",
+      "type": "类型"
+    },
+    "title": "标签管理",
+    "types": {
+      "category": "分类",
+      "feature": "特征",
+      "version": "版本"
+    }
+  },
+  "upload": {
+    "btn": {
+      "finish_editing": "完成编辑",
+      "select_files": "选择文件",
+      "start_uploading": "完成并上传",
+      "upload_design": "上传机器设计"
+    },
+    "desc": {
+      "design_maximal_file_size": "最大文件大小：100MB",
+      "design_supports_file_formats": "支持的文件格式：.litematica .schem .zip 等",
+      "existing_machine_design": "你正在编辑一个已有的机器设计。上传新文件将覆盖现有文件。",
+      "i_am_not_the_author": "此机器属于公共领域，或我被授权可以发布",
+      "i_am_the_author": "我是作者",
+      "id_can_only_contain": "ID 只能包含 a-z, 0-9, - and _",
+      "id_is_taken": "此 ID 已被占用",
+      "litematica_generator": "投影生成器",
+      "litematica_generator_only_support_uploading_1_litematica_file": "投影生成器模式只支持上传单个投影文件",
+      "manual_upload": "普通机器投稿，大多数稿件应选择此选项",
+      "maximum_size_per_image": "单张图片最大 2MB",
+      "name_cannot_contain_special_characters": "名称不能包含特殊字符",
+      "not_upload": "尚未上传任何文件",
+      "please_contact_us_if_you_have_any_questions": "如有任何疑问，请联系我们：",
+      "please_select_which_language_to_edit": "请选择要编辑哪种语言的信息",
+      "post_type": "请选择此帖子的类型",
+      "review_usually_takes_one_to_two_days": "审核通常需要一到二天时间。",
+      "selected_count_files": "已选择 {count} 个文件",
+      "upload_images": "上传图片 (最多3张)",
+      "upload_schematic_or_world_save": "上传蓝图或存档",
+      "you_will_receive_an_email_notification_when_approved": "当审核通过后，您将收到邮件通知。",
+      "your_machine_design_is_under_review_please_wait_with_patience": "您的机器设计正在审核中，请耐心等待。"
+    },
+    "step": {
+      "image": "上传图像",
+      "tags": "分类和标签",
+      "translation": "基本信息",
+      "under-review": "等待审核",
+      "upload": "上传"
+    },
+    "tags": {
+      "create_failed": "创建标签失败",
+      "create_hint": "没有现有标签与它 normalize 后完全相同。",
+      "create_success": "标签已创建并选中",
+      "create_tag": "新建“{name}”",
+      "empty_code": "标签代码不能为空",
+      "input_label": "搜索标签",
+      "search_failed": "搜索标签失败",
+      "strict_no_match": "没有标签在 normalize 后与当前关键词严格匹配。你可以新建一个标签。"
+    },
+    "toast": {
+      "auto_filled_id": "从名称自动填写ID",
+      "auto_filled_name": "从文件名自动填充名称",
+      "max_file_number": "上传的文件不能超过 {count} 个。"
+    },
+    "markdown": {
+      "introduction_markdown_editor": {
+        "title": "欢迎使用Reden Markdown编辑器！",
+        "content": "Markdown是一种国际通用的文本格式，可以编写带有格式的文本。<br />Reden提供了一个Markdown编辑器，左侧是编辑区，右侧是渲染后的结果，供您预览。<br />如果您想详细学习Markdown语法，可以<a href=\"https://www.runoob.com/markdown/md-tutorial.html\" target=_blank>点击链接</a>。 "
+      }
+    }
+  },
+  "user": {
+    "archiver": "归档员",
+    "archiver_hover": "此用户是归档员，可以免审核上传稿件",
+    "contributor": "贡献者",
+    "contributor_hover": "此用户参与过本项目的开发",
+    "developer": "开发者",
+    "developer_hover": "此用户是本项目的活跃开发者",
+    "sponsor": "赞助者",
+    "sponsor_hover": "此用户赞助过本项目",
+    "staff": "管理员",
+    "staff_hover": "此用户是本项目的管理员"
+  },
+  "zh_cn": "简体中文",
+  "zh_tw": "繁體中文"
+}
