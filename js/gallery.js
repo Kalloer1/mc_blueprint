@@ -366,6 +366,13 @@ function createBlueprintCard(bp) {
     img.src = bp.preview;
     img.alt = bp.name;
     img.loading = 'lazy';
+    img.addEventListener('error', function() {
+      img.style.display = 'none';
+      var placeholder = document.createElement('div');
+      placeholder.className = 'placeholder-preview';
+      placeholder.textContent = formatIcons[bp.format] || '\u{1F3D7}';
+      preview.appendChild(placeholder);
+    });
     preview.appendChild(img);
   } else {
     var placeholder = document.createElement('div');

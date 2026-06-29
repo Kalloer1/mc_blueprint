@@ -165,22 +165,50 @@ function handleCallback() {
   var params = new URLSearchParams(window.location.search);
   var userDataParam = params.get('user_data');
 
-  // 处理 GitHub 返回的用户数据
   if (userDataParam) {
     try {
       var userData = JSON.parse(decodeURIComponent(userDataParam));
       localStorage.setItem('user', JSON.stringify(userData));
 
-      var indexPath = window.location.pathname.replace(/auth\/callback\.html.*$/, '') || '/index.html';
-      window.location.href = window.location.origin + indexPath;
+      var statusText = document.getElementById('status-text');
+      var spinner = document.getElementById('spinner');
+      if (statusText) statusText.textContent = '登录成功！正在跳转...';
+      if (spinner) spinner.style.display = 'none';
+
+      setTimeout(function() {
+        window.location.href = 'https://kalloer1.github.io/mc_blueprint/';
+      }, 1500);
       return;
     } catch (e) {
-      showToast('用户数据解析失败', 'error');
-      return;
+      try {
+        var userData2 = JSON.parse(userDataParam);
+        localStorage.setItem('user', JSON.stringify(userData2));
+
+        var statusText = document.getElementById('status-text');
+        var spinner = document.getElementById('spinner');
+        if (statusText) statusText.textContent = '登录成功！正在跳转...';
+        if (spinner) spinner.style.display = 'none';
+
+        setTimeout(function() {
+          window.location.href = 'https://kalloer1.github.io/mc_blueprint/';
+        }, 1500);
+        return;
+      } catch (e2) {
+        var errorDiv = document.getElementById('callback-error');
+        if (errorDiv) {
+          errorDiv.textContent = '用户数据解析失败: ' + e2.message;
+          errorDiv.style.display = 'block';
+        }
+        return;
+      }
     }
   }
 
-  showToast('无效的回调请求', 'error');
+  var errorDiv = document.getElementById('callback-error');
+  if (errorDiv) {
+    errorDiv.textContent = '无效的回调请求，缺少 user_data 参数';
+    errorDiv.style.display = 'block';
+  }
 }
 
 // ==================== 初始化 ====================

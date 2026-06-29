@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>蓝图审核 - MC蓝图工坊</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background: #1a1a2e;
+      min-height: 100vh;
+    }
+
+    .navbar {
+      background: rgba(30, 30, 50, 0.95);
+    }
+
+    .admin-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .admin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .admin-header h1 {
+      color: #fff;
+      font-size: 1.8rem;
+      margin: 0;
+    }
+
+    .admin-header p {
+      color: #999;
+      margin: 0.5rem 0 0 0;
+    }
+
+    .stats-bar {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .stat-item {
+      background: rgba(255,255,255,0.05);
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+      min-width: 100px;
+    }
+
+    .stat-item .number {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #4af5e6;
+    }
+
+    .stat-item .label {
+      font-size: 0.85rem;
+      color: #999;
+      margin-top: 0.25rem;
+    }
+
+    .password-section {
+      background: rgba(255,255,255,0.05);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .password-section input {
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 6px;
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+      width: 300px;
+      margin-right: 0.5rem;
+    }
+
+    .password-section input:focus {
+      outline: none;
+      border-color: #4af5e6;
+    }
+
+    .password-section button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      background: #4af5e6;
+      color: #1a1a2e;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .password-section button:hover {
+      background: #38d4c5;
+    }
+
+    .pending-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 1rem;
+    }
+
+    .pending-card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .pending-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,0.2);
+    }
+
+    .pending-card-header {
+      padding: 1rem;
+      background: rgba(255,255,255,0.03);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .pending-card-header h3 {
+      color: #fff;
+      margin: 0 0 0.5rem 0;
+      font-size: 1.1rem;
+    }
+
+    .pending-card-header .meta {
+      color: #999;
+      font-size: 0.85rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .pending-card-body {
+      padding: 1rem;
+    }
+
+    .pending-card-body p {
+      color: #ccc;
+      font-size: 0.9rem;
+      margin: 0 0 1rem 0;
+      line-height: 1.5;
+    }
+
+    .pending-card-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    .pending-card-details .detail {
+      color: #999;
+    }
+
+    .pending-card-details .detail span {
+      color: #4af5e6;
+    }
+
+    .pending-card-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .btn-approve {
+      flex: 1;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 6px;
+      background: #27ae60;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-approve:hover {
+      background: #219a52;
+    }
+
+    .btn-reject {
+      flex: 1;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 6px;
+      background: #e74c3c;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-reject:hover {
+      background: #d63031;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 4rem;
+    }
+
+    .empty-state .empty-icon {
+      font-size: 4rem;
+      opacity: 0.3;
+      margin-bottom: 1rem;
+    }
+
+    .empty-state h3 {
+      color: #fff;
+      margin: 0 0 0.5rem 0;
+    }
+
+    .empty-state p {
+      color: #999;
+      margin: 0;
+    }
+
+    .loading-state {
+      text-align: center;
+      padding: 4rem;
+    }
+
+    .loading-state .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(255,255,255,0.1);
+      border-top: 4px solid #4af5e6;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 1rem auto;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .loading-state p {
+      color: #999;
+    }
+
+    .toast {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-20px);
+      padding: 12px 24px;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 14px;
+      z-index: 9999;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+      pointer-events: none;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .toast.success {
+      background: #27ae60;
+    }
+
+    .toast.error {
+      background: #e74c3c;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="./" class="nav-logo">
+      <div class="logo-icon"></div>
+      <span class="logo-text">MC<span>蓝图</span>工坊</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="./">蓝图库</a></li>
+      <li><a href="./converter.html">格式转换</a></li>
+      <li><a href="./upload.html">上传蓝图</a></li>
+      <li><a href="./admin.html" class="active">蓝图审核</a></li>
+    </ul>
+    <div id="nav-user"></div>
+  </nav>
+
+  <div class="admin-container">
+    <div class="admin-header">
+      <div>
+        <h1>🔍 蓝图审核</h1>
+        <p>管理待审核的蓝图提交</p>
+      </div>
+      <div class="stats-bar">
+        <div class="stat-item">
+          <div class="number" id="pending-count">0</div>
+          <div class="label">待审核</div>
+        </div>
+        <div class="stat-item">
+          <div class="number" id="approved-count">0</div>
+          <div class="label">已通过</div>
+        </div>
+        <div class="stat-item">
+          <div class="number" id="rejected-count">0</div>
+          <div class="label">已拒绝</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="password-section">
+      <input type="password" id="admin-password" placeholder="输入管理员密码">
+      <button onclick="loginAdmin()">登录</button>
+      <p style="color: #999; font-size: 0.85rem; margin-top: 0.5rem;">输入密码后才能查看和审核蓝图</p>
+    </div>
+
+    <div id="pending-list" class="pending-list">
+      <div class="loading-state">
+        <div class="spinner"></div>
+        <p>请先登录</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script>
+    const AUTH_WORKER_URL = 'https://qq-auth.wqclo.workers.dev';
+    let adminPassword = '';
+
+    function showToast(message, type) {
+      let toast = document.getElementById('admin-toast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'admin-toast';
+        toast.className = 'toast';
+        document.body.appendChild(toast);
+      }
+
+      toast.textContent = message;
+      toast.className = 'toast show ' + type;
+
+      setTimeout(function() {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    async function loginAdmin() {
+      const passwordInput = document.getElementById('admin-password');
+      adminPassword = passwordInput.value.trim();
+
+      if (!adminPassword) {
+        showToast('请输入密码', 'error');
+        return;
+      }
+
+      await loadPendingList();
+    }
+
+    async function loadPendingList() {
+      const listContainer = document.getElementById('pending-list');
+      listContainer.innerHTML = '<div class="loading-state"><div class="spinner"></div><p>正在加载待审核列表...</p></div>';
+
+      try {
+        const response = await fetch(AUTH_WORKER_URL + '/pending', {
+          headers: {
+            'Authorization': 'Bearer ' + adminPassword
+          }
+        });
+
+        const data = await response.json();
+
+        if (!data.success) {
+          showToast(data.error || '获取列表失败', 'error');
+          listContainer.innerHTML = '<div class="empty-state"><span class="empty-icon">🔒</span><h3>未授权</h3><p>密码错误，请重新输入</p></div>';
+          return;
+        }
+
+        const pending = data.pending || [];
+        document.getElementById('pending-count').textContent = pending.length;
+
+        if (pending.length === 0) {
+          listContainer.innerHTML = '<div class="empty-state"><span class="empty-icon">🎉</span><h3>暂无待审核蓝图</h3><p>所有提交都已审核完成</p></div>';
+          return;
+        }
+
+        listContainer.innerHTML = '';
+
+        pending.forEach(function(bp) {
+          const card = document.createElement('div');
+          card.className = 'pending-card';
+
+          const modNames = (bp.mod_names || []).join(', ') || '无';
+
+          card.innerHTML = `
+            <div class="pending-card-header">
+              <h3>${bp.name}</h3>
+              <div class="meta">
+                <span>${bp.format.toUpperCase()} · ${bp.size}</span>
+                <span>版本 ${bp.mc_version || '未知'}</span>
+              </div>
+            </div>
+            <div class="pending-card-body">
+              <p>${bp.description || '暂无描述'}</p>
+              <div class="pending-card-details">
+                <div class="detail">上传者: <span>${bp.author || '匿名'}</span></div>
+                <div class="detail">模组依赖: <span>${modNames}</span></div>
+                <div class="detail">尺寸: <span>${bp.dimensions || '未知'}</span></div>
+                <div class="detail">方块数: <span>${bp.blocks || '未知'}</span></div>
+              </div>
+              <div class="pending-card-actions">
+                <button class="btn-approve" onclick="approveBlueprint('${bp.id}')">✅ 通过</button>
+                <button class="btn-reject" onclick="rejectBlueprint('${bp.id}')">❌ 拒绝</button>
+              </div>
+            </div>
+          `;
+
+          listContainer.appendChild(card);
+        });
+
+      } catch (err) {
+        console.error(err);
+        showToast('加载失败: ' + err.message, 'error');
+        listContainer.innerHTML = '<div class="empty-state"><span class="empty-icon">❌</span><h3>加载失败</h3><p>无法连接到服务器</p></div>';
+      }
+    }
+
+    async function approveBlueprint(uploadId) {
+      if (!confirm('确定要通过这个蓝图吗？')) {
+        return;
+      }
+
+      try {
+        const response = await fetch(AUTH_WORKER_URL + '/approve', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + adminPassword
+          },
+          body: JSON.stringify({ uploadId: uploadId })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          showToast('审核通过', 'success');
+          loadPendingList();
+        } else {
+          showToast(data.error || '操作失败', 'error');
+        }
+
+      } catch (err) {
+        showToast('操作失败: ' + err.message, 'error');
+      }
+    }
+
+    async function rejectBlueprint(uploadId) {
+      if (!confirm('确定要拒绝这个蓝图吗？文件将被删除。')) {
+        return;
+      }
+
+      try {
+        const response = await fetch(AUTH_WORKER_URL + '/reject', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + adminPassword
+          },
+          body: JSON.stringify({ uploadId: uploadId })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          showToast('已拒绝', 'success');
+          loadPendingList();
+        } else {
+          showToast(data.error || '操作失败', 'error');
+        }
+
+      } catch (err) {
+        showToast('操作失败: ' + err.message, 'error');
+      }
+    }
+
+    document.getElementById('admin-password').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        loginAdmin();
+      }
+    });
+  </script>
+</body>
+</html>
