@@ -2,8 +2,8 @@
 // 部署到 Cloudflare Workers 后，将 AUTH_WORKER_URL 设置为此 Worker 的 URL
 
 // QQ 互联应用配置
-const QQ_APP_ID = '1112518560';
-const QQ_APP_KEY = 'Ps6lLVltZEMLWTbQ';
+const QQ_APP_ID = '1232133123312';
+const QQ_APP_KEY = 'Ps6saadtZEMLWTbQ';
 
 // 你的网站回调地址（部署后修改为实际地址）
 // 例如: https://yourname.github.io/minecraft-blueprints/auth/callback.html
