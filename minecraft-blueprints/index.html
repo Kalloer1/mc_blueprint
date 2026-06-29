@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MC蓝图工坊 - Minecraft 蓝图库</title>
+  <meta name="description" content="探索、分享、转换你的 Minecraft 建筑蓝图。支持 NBT、Schematic、Litematic、JSON 格式。">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <a href="./" class="nav-logo">
+      <div class="logo-icon"></div>
+      <span class="logo-text">MC<span>蓝图</span>工坊</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="./" class="active">蓝图库</a></li>
+      <li><a href="./converter.html">格式转换</a></li>
+    </ul>
+    <div id="nav-user"></div>
+  </nav>
+
+  <!-- 主内容 -->
+  <main class="main-content">
+
+    <!-- Hero 区域 -->
+    <section class="hero">
+      <h1>我的世界<span class="highlight">蓝图</span>工坊</h1>
+      <p>探索、分享、转换你的 Minecraft 建筑蓝图</p>
+      <div class="hero-buttons">
+        <a href="#gallery" class="btn btn-primary">浏览蓝图库</a>
+        <a href="./converter.html" class="btn btn-secondary">格式转换</a>
+      </div>
+      <div class="formats-legend">
+        <div class="legend-item">
+          <span class="legend-dot nbt"></span>
+          <span>NBT</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot schematic"></span>
+          <span>Schematic</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot litematic"></span>
+          <span>Litematic</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot json"></span>
+          <span>JSON</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 蓝图库 -->
+    <section id="gallery" class="container">
+      <div class="section-header">
+        <h2><span class="icon">&#x1f3d7;</span> 蓝图库</h2>
+        <div class="search-filter-bar">
+          <div class="search-box">
+            <input type="text" id="search-input" placeholder="搜索蓝图...">
+          </div>
+        </div>
+      </div>
+      <div class="filter-chips" id="filter-chips">
+        <span class="filter-chip active" data-filter="all">全部</span>
+        <span class="filter-chip" data-filter="nbt">NBT</span>
+        <span class="filter-chip" data-filter="schematic">Schematic</span>
+        <span class="filter-chip" data-filter="litematic">Litematic</span>
+        <span class="filter-chip" data-filter="json">JSON</span>
+      </div>
+      <div class="blueprint-grid" id="blueprint-grid"></div>
+    </section>
+
+  </main>
+
+  <!-- 模态框 -->
+  <div class="modal-overlay" id="modal">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <div class="modal-image" id="modal-image"></div>
+      <div class="modal-body">
+        <h3 id="modal-title"></h3>
+        <p class="modal-desc" id="modal-desc"></p>
+        <div class="modal-details" id="modal-details"></div>
+        <div class="modal-downloads" id="modal-downloads"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast 提示 -->
+  <div class="toast" id="toast"></div>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <p>MC蓝图工坊 - 基于 GitHub Pages 构建</p>
+  </footer>
+
+  <!-- 脚本 -->
+  <script src="js/auth.js"></script>
+  <script src="js/parsers/nbt-parser.js"></script>
+  <script src="js/gallery.js"></script>
+
+</body>
+</html>
