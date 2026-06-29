@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MC蓝图工坊 - 蓝图格式转换</title>
+  <meta name="description" content="上传蓝图文件，转换为 NBT、Schematic、Litematic、JSON 等格式一键下载。">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <a href="./" class="nav-logo">
+      <div class="logo-icon"></div>
+      <span class="logo-text">MC<span>蓝图</span>工坊</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="./">蓝图库</a></li>
+      <li><a href="./converter.html" class="active">格式转换</a></li>
+    </ul>
+    <div id="nav-user"></div>
+  </nav>
+
+  <!-- 主内容 -->
+  <main class="main-content">
+
+    <!-- Hero 区域 -->
+    <section class="hero hero-small">
+      <h1>蓝图<span class="sub-highlight">格式转换</span></h1>
+      <p>上传蓝图文件，转换为其他格式一键下载</p>
+    </section>
+
+    <!-- 转换区域 -->
+    <section class="converter-section">
+      <div class="converter-card">
+        <h2>上传蓝图文件</h2>
+        <p class="converter-subtitle">支持 NBT、Schematic、Litematic、JSON 等格式互转</p>
+
+        <!-- 上传区域 -->
+        <div class="upload-zone" id="upload-zone">
+          <div class="upload-icon">&#x1f4e6;</div>
+          <p class="upload-text">点击或拖拽文件到此处上传</p>
+          <p class="upload-hint">支持 .nbt, .schematic, .litematic, .json 格式</p>
+          <input type="file" id="file-input" accept=".nbt,.schematic,.litematic,.json" hidden>
+          <div class="file-info" id="file-info"></div>
+        </div>
+
+        <!-- 格式选择 -->
+        <div class="format-selection">
+          <label>选择目标格式</label>
+          <div class="format-options">
+            <div class="format-option" data-format="nbt">
+              <strong>NBT</strong>
+              <span class="format-desc">Minecraft 原版结构</span>
+            </div>
+            <div class="format-option" data-format="schematic">
+              <strong>Schematic</strong>
+              <span class="format-desc">WorldEdit / WorldGuard</span>
+            </div>
+            <div class="format-option" data-format="litematic">
+              <strong>Litematic</strong>
+              <span class="format-desc">Litematica 模组</span>
+            </div>
+            <div class="format-option" data-format="json">
+              <strong>JSON</strong>
+              <span class="format-desc">通用数据格式</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 转换按钮 -->
+        <button class="btn btn-diamond btn-convert" id="btn-convert">开始转换</button>
+
+        <!-- 进度条 -->
+        <div class="convert-progress" id="convert-progress">
+          <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+          <p class="progress-text" id="progress-text">正在转换中...</p>
+        </div>
+
+        <!-- 转换结果 -->
+        <div class="convert-result" id="convert-result">
+          <div class="result-icon">&#x2705;</div>
+          <p class="result-text">转换完成！文件已准备就绪。</p>
+          <a class="btn btn-diamond btn-download" id="btn-download" href="#">下载文件</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Toast 提示 -->
+  <div class="toast" id="toast"></div>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <p>MC蓝图工坊 - 基于 GitHub Pages 构建</p>
+  </footer>
+
+  <!-- 脚本 -->
+  <script src="js/auth.js"></script>
+  <script src="js/parsers/nbt-parser.js"></script>
+  <script src="js/converter.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+{
+  "blueprints": [
+    {
+      "id": 1,
+      "name": "中世纪城堡",
+      "description": "一座精美的中世纪石砖城堡，包含塔楼、城墙和内部大厅。可防御僵尸和苦力怕的夜间袭击。",
+      "format": "nbt",
+      "size": "2.4 MB",
+      "dimensions": "64x45x64",
+      "blocks": 12840,
+      "preview": "",
+      "date": "2025-01-15",
+      "tags": ["建筑", "中世纪", "防御"],
+      "download": "./blueprints/castle.nbt"
+    },
+    {
+      "id": 2,
+      "name": "日式神社",
+      "description": "传统日式鸟居神社建筑，包含石灯笼和樱花树装饰。宁静祥和的东方建筑风格。",
+      "format": "schematic",
+      "size": "1.8 MB",
+      "dimensions": "32x20x48",
+      "blocks": 5620,
+      "preview": "",
+      "date": "2025-02-20",
+      "tags": ["建筑", "日式", "装饰"],
+      "download": "./blueprints/shrine.schematic"
+    },
+    {
+      "id": 3,
+      "name": "现代别墅",
+      "description": "现代风格的豪华别墅，带泳池、车库和花园。室内配备红石灯光系统和自动门。",
+      "format": "litematic",
+      "size": "3.1 MB",
+      "dimensions": "48x25x56",
+      "blocks": 18200,
+      "preview": "",
+      "date": "2025-03-10",
+      "tags": ["建筑", "现代", "红石"],
+      "download": "./blueprints/villa.litematic"
+    }
+  ],
+  "supportedFormats": [
+    {
+      "id": "nbt",
+      "name": "NBT",
+      "extension": ".nbt",
+      "description": "Minecraft 原版结构文件格式",
+      "color": "#ff0000"
+    },
+    {
+      "id": "schematic",
+      "name": "Schematic",
+      "extension": ".schematic",
+      "description": "WorldEdit / WorldGuard 结构文件",
+      "color": "#fcdb05"
+    },
+    {
+      "id": "litematic",
+      "name": "Litematic",
+      "extension": ".litematic",
+      "description": "Litematica 模组蓝图格式",
+      "color": "#b388ff"
+    },
+    {
+      "id": "json",
+      "name": "JSON",
+      "extension": ".json",
+      "description": "通用数据交换格式",
+      "color": "#4af5e6"
+    }
+  ]
+}
